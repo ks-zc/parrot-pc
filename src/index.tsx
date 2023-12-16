@@ -7,10 +7,14 @@ import { localStorageGet } from './utils';
 import Home from './pages/home';
 import NFT from './pages/nft';
 import './reset.scss';
+import { onMainnetIsConnect } from './metamask';
 
 localStorageGet(CONFIG.PARROT_USER).then((res) => {
     actions.user.setState({ userInfo: JSON.parse(res || '{}') });
     const C = window.location.href.includes('/nft') ? NFT : Home;
+    onMainnetIsConnect((mainnetIsConnect) => {
+        actions.user.setState({ mainnetIsConnect });
+    });
     createRoot(document.querySelector('#app')!).render(
         <Provider store={store}>
             <C />

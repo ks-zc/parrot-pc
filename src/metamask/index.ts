@@ -61,7 +61,7 @@ function onMetaMaskIsInstall(cb: Function) {
 }
 
 let mainnetIsConnect: boolean;
-function onMainnetIsConnect(cb: Function) {
+function onMainnetIsConnect(cb: (mainnetIsConnect: boolean) => void) {
     setInterval(async () => {
         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
         const mainnetIsConnect1 = chainId === CHAIN_ID;
