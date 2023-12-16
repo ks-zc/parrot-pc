@@ -20,12 +20,6 @@ interface Claime {
     url: string;
     claimedAt: string;
 }
-interface Seeds {
-    total: number;
-    claimed: number;
-    available: number;
-    pending: number;
-}
 
 interface Item {
     category: string;
@@ -79,31 +73,6 @@ export default {
         },
         updateUserInfo: (data: Partial<UserInfo>) => {
             actions.user.setUserInfo({ ...getState('user').userInfo, ...data });
-        },
-        getFollowing: async () => {
-            if (!getState('user').userInfo.token) {
-                return;
-            }
-            await request<Item[]>({
-                url: `${CONFIG.API_HOST}/topics/following`,
-            }).then(([, res]) => {
-                if (res) {
-                    actions.user.setState({ followList: res });
-                    localStorageSet(CONFIG.PARROT_USER_FOLLOW, JSON.stringify(res));
-                }
-            });
-        },
-        getClaime: async () => {
-            if (!getState('user').userInfo.token) {
-                return;
-            }
-            await request<{ list: Claime[]; seeds: Seeds }>({
-                url: `${CONFIG.API_HOST}/claimed_seeds`,
-            }).then(([, res]) => {
-                if (res) {
-                    actions.user.setState({ claimedList: res.list, seeds: res.seeds });
-                }
-            });
         },
     },
 };

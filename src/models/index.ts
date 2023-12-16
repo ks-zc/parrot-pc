@@ -1,11 +1,9 @@
 import user from './user';
-import common from './common';
 
 import { StatesType, ActionsType, createStore } from './redux';
 
 const store = {
     user,
-    common,
 };
 
 declare global {
