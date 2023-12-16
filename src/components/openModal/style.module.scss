@@ -1,0 +1,42 @@
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes fade-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes fade-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+.c {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, .4);
+}
+.in {
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+}
+.out {
+    animation-name: fade-out;
+    animation-fill-mode: forwards;
+}
+.left {
+    animation-name: fade-left;
+    animation-fill-mode: forwards;
+}
+.right {
+    animation-name: fade-right;
+    animation-fill-mode: forwards;
+}
