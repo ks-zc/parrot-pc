@@ -18,12 +18,47 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
         const { userInfo, mainnetIsConnect } = this.props;
         return (
             <div styleName="header">
-                <img styleName="parrot" src={require('Assets/parrot.png')} alt="" />
+                <img
+                    onClick={() => {
+                        window.location.href = window.location.origin;
+                    }}
+                    styleName="parrot"
+                    src={require('Assets/parrot.png')}
+                    alt=""
+                />
                 <div styleName="btns">
-                    <div styleName="btn">Launchpad</div>
-                    <div styleName="btn">🔥Freemint</div>
-                    <div styleName="btn">X (Twitter)</div>
-                    <div styleName="btn">Whitepaper</div>
+                    <div
+                        styleName="btn"
+                        onClick={() => {
+                            window.location.href = `${window.location.origin}/nft`;
+                        }}
+                    >
+                        Launchpad
+                    </div>
+                    <div
+                        styleName="btn"
+                        onClick={() => {
+                            window.location.href = `${window.location.origin}/nft`;
+                        }}
+                    >
+                        🔥Freemint
+                    </div>
+                    <div
+                        styleName="btn"
+                        onClick={() => {
+                            window.location.href = `${window.location.origin}/nft`;
+                        }}
+                    >
+                        X (Twitter)
+                    </div>
+                    <div
+                        styleName="btn"
+                        onClick={() => {
+                            window.location.href = `${window.location.origin}/nft`;
+                        }}
+                    >
+                        Whitepaper
+                    </div>
                 </div>
 
                 <div styleName="right">
