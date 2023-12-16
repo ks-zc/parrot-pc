@@ -1,0 +1,64 @@
+.home {
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    .wrap {
+        position: relative;
+        margin: 0 auto;
+        width: 1440px;
+        min-height: 100%;
+        .bg1 {
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+        }
+        .block {
+            position: relative;
+            height: 486px;
+            .title {
+                position: absolute;
+                left: 128px;
+                top: 110px;
+                line-height: 20px; /* 55.556% */
+                font-family: Source Han Sans CN;
+                font-style: normal;
+                font-weight: 900;
+                font-size: 36px;
+                color: #000;
+            }
+            .subtitle {
+                position: absolute;
+                left: 128px;
+                top: 171px;
+                line-height: normal;
+                font-family: Source Han Sans CN;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 28px;
+                color: rgba(0, 0, 0, 0.6);
+            }
+            .btn {
+                position: absolute;
+                left: 128px;
+                height: 50px;
+                cursor: pointer;
+            }
+            .nft {
+                position: absolute;
+                right: 150px;
+                top: 80px;
+                flex-shrink: 0;
+                width: 380.267px;
+                height: 357.103px;
+            }
+        }
+        .line {
+            margin: 0 auto;
+            width: 1161px;
+            height: 1px;
+            background-color: #d0d0d0;
+        }
+    }
+}
