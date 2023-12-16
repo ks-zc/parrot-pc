@@ -19,6 +19,8 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
         return (
             <div styleName="home">
                 <div styleName="wrap" id="wrap">
+                    <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
+                    <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
                     <div styleName="header">
                         <img styleName="parrot" src={require('Assets/parrot.png')} alt="" />
                         <div styleName="btns">
@@ -189,6 +191,46 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                             <img styleName="download" src={require('Assets/download.svg')} alt="" />
                         </div>
                         <img styleName="image1" src={require('Assets/image1.png')} alt="" />
+                    </div>
+                    <div styleName="why">Why PARROT？</div>
+                    <div styleName="div-block" style={{ marginTop: 0 }}>
+                        <div style={{ marginRight: 100 }}>
+                            <div styleName="title">
+                                <div>Reshaping</div>
+                                <div>Content Creation & Spread</div>
+                            </div>
+                            <div styleName="subtitle" style={{ paddingRight: 100 }}>
+                                In the content domain, the power of spreading is often underrated, despite its massive
+                                commercial potential. PARROT is changing the game - don&apos;t miss out on being part of
+                                a movement that equally values and rewards both creators and spreaders.
+                            </div>
+                        </div>
+                        <img styleName="image2" src={require('Assets/image2.png')} alt="" />
+                    </div>
+                    <div styleName="div-block">
+                        <img styleName="image2" src={require('Assets/image3.png')} alt="" />
+                        <div style={{ marginLeft: 253 }}>
+                            <div styleName="title">Dynamic Value Allocation</div>
+                            <div styleName="subtitle">
+                                The relationship between content creation and spread is fluid and ever-changing.
+                                PARROT&apos;s cutting-edge approach dynamically adjusts value distribution - stay ahead
+                                in a market that never stands still.
+                            </div>
+                        </div>
+                    </div>
+                    <div styleName="div-block">
+                        <div style={{ marginRight: 100 }}>
+                            <div styleName="title">
+                                <div>Smart Investing in</div>
+                                <div>Content Spread</div>
+                            </div>
+                            <div styleName="subtitle" style={{ paddingRight: 80 }}>
+                                Content spread is an investment with its own risks and rewards. PARROT uniquely balances
+                                these factors, offering a fair system for all. Don&apos;t be left behind in the new era
+                                of content economics.
+                            </div>
+                        </div>
+                        <img styleName="image2" src={require('Assets/image4.png')} alt="" />
                     </div>
                 </div>
             </div>

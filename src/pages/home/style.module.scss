@@ -6,7 +6,20 @@
         position: relative;
         margin: 0 auto;
         width: 1440px;
-        background-color: rgb(84, 92, 89, 0.3);
+        .bg1 {
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+        }
+        .bg2 {
+            display: block;
+            position: absolute;
+            top: 700px;
+            z-index: -1;
+            width: 100%;
+        }
         .header {
             display: flex;
             position: relative;
@@ -38,7 +51,7 @@
                     font-style: normal;
                     font-weight: 900;
                     font-size: 16px;
-                    color: #fff;
+                    color: #f2f2f2;
                 }
             }
             .right {
@@ -144,6 +157,17 @@
                 }
             }
         }
+        .why {
+            position: relative;
+            top: 43px;
+            height: 150px;
+            text-align: center;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 106px;
+            color: rgba(255, 255, 255, 0.6);
+        }
         .div1 {
             position: relative;
             width: 100%;
@@ -212,6 +236,41 @@
                 flex-shrink: 0;
                 width: 518px;
                 height: 404.827px;
+            }
+        }
+        .div-block {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin: 0 auto;
+            margin-top: 40px;
+            padding: 0 60px;
+            border-radius: 20px;
+            width: 1220px;
+            height: 376px;
+            background: #f7f7f7;
+            .image2 {
+                flex-shrink: 0;
+                width: 398px;
+                height: 296px;
+            }
+            .title {
+                margin-bottom: 20px;
+                line-height: 120%; /* 57.6px */
+                font-family: Outfit;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 48px;
+                color: var(--Darkness, #070707);
+                letter-spacing: -0.96px;
+            }
+            .subtitle {
+                line-height: normal;
+                font-family: Inter;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                color: #333;
             }
         }
     }
