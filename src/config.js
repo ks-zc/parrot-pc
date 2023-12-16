@@ -12,9 +12,5 @@ export const CONFIG = {
     WEB_NFT_PAGE: 'https://www.google.com/search?q=Visit+the+NFT+page',
     RULES_PAGE: 'https://www.google.com/search?q=The+rules+of+content+to+earn',
     UPGRADE_PAGE: 'https://www.google.com/search?q=Go+Upgrade',
-    // METAMASK_URL: `https://ks-static-new.oss-cn-beijing.aliyuncs.com/temp/metamask-${
-    //     require('./metamask.json').hash
-    // }.html?${__PROD__ ? 'isPro=1' : ''}`,
-    METAMASK_URL: `https://parrot.buzz/metamask-${require('./metamask.json').hash}.html?${__PROD__ ? 'isPro=1' : ''}`,
     IFRAME_ID: '__parrot-metamask-iframe__',
 };

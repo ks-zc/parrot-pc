@@ -1,14 +1,3 @@
-import { CONFIG } from 'Src/config';
-import {
-    signInWithEthereum,
-    claimSeed,
-    onMetaMaskIsInstall,
-    onMainnetIsConnect,
-    connectMainNet,
-    disconnect,
-} from '../metamask/index';
-import Toast from './Toast';
-
 /* eslint-disable no-param-reassign */
 export function sleep(ms: number) {
     return new Promise((reslove) => {
@@ -31,10 +20,7 @@ export function formatAddress(str?: string) {
 }
 
 export const Require = (id: string) => {
-    if (__DEV__) {
-        return require(`Assets/${id}`);
-    }
-    return chrome.runtime.getURL(id);
+    return require(`Assets/${id}`);
 };
 
 export async function localStorageSet(key: string, data: string) {
@@ -69,80 +55,6 @@ export function formatNum(num: number | string) {
         return `${Number(Math.floor(num1 / 100) / 10).toFixed(1)}k`;
     }
     return num1.toFixed(1);
-}
-
-export function invoke<T>(
-    method: 'signInWithEthereum' | 'claimSeed' | 'connectMainNet' | 'disconnect',
-    cb: (res: T) => void,
-    params?: any,
-) {
-    const idx = Math.random();
-    const listener = (e: any) => {
-        if (CONFIG.METAMASK_URL.startsWith(e.origin)) {
-            const json = JSON.parse(e.data);
-            const { id } = json;
-            if (id === idx) {
-                cb1(json);
-            }
-        }
-    };
-    const cb1 = async (json: any) => {
-        const { code, message, data } = json;
-        if (code === 0) {
-            window.removeEventListener('message', listener);
-            cb(data);
-        } else {
-            message && Toast.show(message);
-        }
-    };
-    if (__DEV__) {
-        ({
-            signInWithEthereum,
-            claimSeed,
-            connectMainNet,
-            disconnect,
-        })
-            [method](idx, params)
-            .then((res) => cb1(res));
-    } else {
-        window.addEventListener('message', listener);
-        document
-            .querySelector<HTMLIFrameElement>(`#${CONFIG.IFRAME_ID}`)!
-            .contentWindow?.postMessage({ method, id: idx, params }, '*');
-    }
-}
-
-export function on(method: 'metaMaskIsInstall' | 'mainnetIsConnect', cb: Function) {
-    const idx = Math.random();
-    const listener = (e: any) => {
-        if (CONFIG.METAMASK_URL.startsWith(e.origin)) {
-            const json = JSON.parse(e.data);
-            const { id } = json;
-            if (id === idx) {
-                cb1(json);
-            }
-        }
-    };
-    const cb1 = async (json: any) => {
-        const { code, message, data } = json;
-        if (code === 0) {
-            cb(data);
-        } else {
-            console.log(message);
-            // message && Toast.show(message);
-        }
-    };
-    if (__DEV__) {
-        ({
-            metaMaskIsInstall: onMetaMaskIsInstall,
-            mainnetIsConnect: onMainnetIsConnect,
-        })[method](cb);
-    } else {
-        window.addEventListener('message', listener);
-        document
-            .querySelector<HTMLIFrameElement>(`#${CONFIG.IFRAME_ID}`)!
-            .contentWindow?.postMessage({ method, id: idx }, '*');
-    }
 }
 
 export function checkMaxLength(str: string, length: number) {

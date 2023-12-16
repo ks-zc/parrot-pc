@@ -28,9 +28,9 @@
             "Components/*": [
                 "./src/components/*"
             ],
-            // "Assets/*": [
-            //     "./src/assets/*"
-            // ],
+            "Assets/*": [
+                "./src/assets/*"
+            ],
             "Models/*": [
                 "./src/models/*"
             ],

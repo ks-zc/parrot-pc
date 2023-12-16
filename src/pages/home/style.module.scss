@@ -1,0 +1,249 @@
+.home {
+    overflow: scroll;
+    width: 100vw;
+    height: 100vh;
+    .wrap {
+        position: relative;
+        margin: 0 auto;
+        width: 1440px;
+        background-color: rgb(84, 92, 89, 0.3);
+        .header {
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-shrink: 0;
+            border-bottom: 1px solid #fff;
+            width: 100%;
+            height: 90px;
+            .parrot {
+                position: relative;
+                top: -2px;
+                flex-shrink: 0;
+                margin-left: 51px;
+                width: 132px;
+                height: 30px;
+            }
+            .btns {
+                display: flex;
+                align-items: center;
+                margin-left: 49px;
+                padding-left: 67px;
+                border-left: 1px solid #fff;
+                height: 100%;
+                .btn {
+                    margin-right: 40px;
+                    cursor: pointer;
+                    line-height: 20px; /* 125% */
+                    font-family: Outfit;
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 16px;
+                    color: #fff;
+                }
+            }
+            .right {
+                display: flex;
+                position: absolute;
+                right: 30px;
+                .login {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 6px;
+                    width: 174px;
+                    height: 48px;
+                    background: #fff;
+                    cursor: pointer;
+                    line-height: 24px; /* 150% */
+                    text-align: center;
+                    font-family: PingFang SC;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: #000;
+                    letter-spacing: -0.24px;
+                    font-feature-settings: 'clig' off, 'liga' off;
+                }
+                .account {
+                    display: flex;
+                    font-size: 12px;
+                    color: #282828;
+                    .balance {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 12px;
+                        border-radius: 43px;
+                        height: 26px;
+                        background: #ffeacb;
+                        .icon {
+                            margin-right: 2px;
+                            width: 14px;
+                            height: 14px;
+                        }
+                    }
+                    .network {
+                        display: flex;
+                        position: relative;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-left: 8px;
+                        padding: 0 6px;
+                        border: 0.5px solid #e4e4e4;
+                        border-radius: 43px;
+                        width: 45px;
+                        height: 26px;
+                        background: linear-gradient(180deg, #fff 0%, #f0f3ff 100%);
+                        cursor: pointer;
+                        .icon1 {
+                            width: 14px;
+                            height: 14px;
+                        }
+                        .arrow1 {
+                            width: 8px;
+                        }
+                        .hint {
+                            display: none;
+                            position: absolute;
+                            right: -85px;
+                            top: 30px;
+                            z-index: 10;
+                            flex-shrink: 0;
+                            padding: 0 16px;
+                            border: 0.5px solid #e4e4e4;
+                            border-radius: 8px;
+                            width: 203px;
+                            height: 53px;
+                            background: #fff;
+                            box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+                            font-weight: 500;
+                            font-size: 14px;
+                            color: var(---, #0b0b0b);
+                        }
+                        &:hover {
+                            .hint {
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                    .id {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 6px;
+                        padding: 0 12px;
+                        border-radius: 30px;
+                        height: 26px;
+                        background: #fff3e4;
+                        cursor: pointer;
+                        .icon {
+                            margin-right: 5px;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .div1 {
+            position: relative;
+            width: 100%;
+            height: 610px;
+            .text1 {
+                position: absolute;
+                left: 110px;
+                top: 80px;
+                line-height: 20px; /* 64.516% */
+                font-family: Outfit;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 31px;
+                color: #fff;
+            }
+            .text2 {
+                position: absolute;
+                left: 122px;
+                top: 118px;
+                width: 500px;
+                line-height: 88%; /* 96.8px */
+                font-family: Outfit;
+                font-style: normal;
+                font-weight: 800;
+                font-size: 110px;
+                color: #fff;
+                letter-spacing: -2.2px;
+            }
+            .download-btn {
+                display: flex;
+                position: absolute;
+                left: 110px;
+                bottom: 87px;
+                align-items: center;
+                flex-shrink: 0;
+                border: 1px solid #fff;
+                border-radius: 8px;
+                width: 364px;
+                height: 64px;
+                cursor: pointer;
+                line-height: normal;
+                font-family: Source Han Sans CN;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                color: #fff;
+                .chrome {
+                    flex-shrink: 0;
+                    margin-left: 24px;
+                    margin-right: 13px;
+                    width: 36px;
+                    height: 36px;
+                }
+                .download {
+                    position: absolute;
+                    right: 22px;
+                    flex-shrink: 0;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .image1 {
+                position: absolute;
+                right: 115px;
+                top: 103px;
+                flex-shrink: 0;
+                width: 518px;
+                height: 404.827px;
+            }
+        }
+    }
+}
+.mainnet {
+    display: flex;
+    position: absolute;
+    right: 85px;
+    top: 65px;
+    align-items: center;
+    flex-shrink: 0;
+    border: 0.5px solid #e4e4e4;
+    border-radius: 8px;
+    width: 203px;
+    height: 40px;
+    background: #fff;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(---, #0b0b0b);
+    .icon2 {
+        margin-left: 12px;
+        margin-right: 7px;
+        width: 18px;
+        height: 18px;
+    }
+    .right-cion {
+        position: absolute;
+        right: 12px;
+        top: 13px;
+        width: 14px;
+        height: 14px;
+    }
+}

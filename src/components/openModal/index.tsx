@@ -2,7 +2,7 @@ import React from 'react';
 import addJSXTo from './addJSXTo';
 import Modal, { ModalProps } from './modal';
 
-export function openModal(node: React.ReactNode, options?: ModalProps) {
+export function openModal(node: React.ReactNode, options?: ModalProps & { where?: Element }) {
     const ref = React.createRef<Modal>();
     addJSXTo((remove) => {
         return (
@@ -17,7 +17,7 @@ export function openModal(node: React.ReactNode, options?: ModalProps) {
                 {node}
             </Modal>
         );
-    });
+    }, options?.where);
     return () => {
         ref.current?.hide();
     };

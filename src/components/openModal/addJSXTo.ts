@@ -4,10 +4,7 @@ import React from 'react';
 /**
  * 将react组件渲染到dom中
  */
-export default function addJSXTo(
-    fn: (remove: Function) => React.ReactNode,
-    where: HTMLElement = document.querySelector('#parrot-app-root')!,
-) {
+export default function addJSXTo(fn: (remove: Function) => React.ReactNode, where: Element = document.body) {
     let remove = () => {};
     if (where) {
         const div = document.createElement('div');

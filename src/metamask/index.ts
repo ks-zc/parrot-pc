@@ -1,11 +1,10 @@
 /* eslint-disable no-unsafe-finally */
 /* eslint-disable no-restricted-globals */
-import { BrowserProvider, ethers } from 'ethers';
+import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
 
 const isPro = window.location.href.includes('isPro=1');
 const API_HOST = isPro ? 'https://api.parrot.buzz' : 'https://api.staging.parrot.buzz';
-const NETWORK = isPro ? 'homestead' : 'sepolia';
 const CHAIN_ID = isPro ? '0x1' : '0xaa36a7';
 
 declare global {
@@ -25,9 +24,9 @@ function createSiweMessage(address: string, statement: string) {
     }).prepareMessage();
 }
 
-async function signInWithEthereum(id: number) {
+async function signInWithEthereum() {
     if (!mainnetIsConnect) {
-        await connectMainNet(0);
+        await connectMainNet();
     }
     const provider = new BrowserProvider(window.ethereum, 'any');
     const signer = await provider.getSigner();
@@ -42,51 +41,14 @@ async function signInWithEthereum(id: number) {
         body: JSON.stringify({ message, signature }),
     });
     if (!res.ok) {
-        const data = { id, message: res.statusText, code: res.status };
-        parent.postMessage(JSON.stringify(data), '*');
-        return data;
+        return { message: res.statusText, code: res.status };
     }
     const data = await res.json();
     if (data.code !== 0) {
-        data.id = id;
-        parent.postMessage(JSON.stringify(data), '*');
         return data;
     }
-    const data1 = { code: 0, id, data: { address, token: data.data.token } };
-    parent.postMessage(JSON.stringify(data1), '*');
-    return data1;
+    return { code: 0, data: { address, token: data.data.token } };
 }
-
-const claimSeed = async (id: number, data: { amount: number; deadline: number; signature: string }) => {
-    const provider = new ethers.AlchemyProvider(NETWORK, 'l3hDguWjU2ioFw4VRev6J4UOu1CL3cLg');
-    const { gasPrice: baseGasPrice } = await provider.getFeeData();
-    const { amount, deadline, signature } = data;
-
-    const browserProvider = new BrowserProvider(window.ethereum, 'any');
-    const signer = await browserProvider.getSigner();
-
-    const registrarContract = new ethers.Contract(
-        '0x9b2D2FA0db465C5E12F8e95B125D27c70c3F79cA',
-        require('./one.json').abi,
-        signer,
-    );
-
-    const baseGasLimit = await (registrarContract.connect(signer) as any).claimSeed.estimateGas(
-        amount,
-        deadline,
-        signature,
-    );
-    const gasLimit = (baseGasLimit * 12n) / 10n;
-    const gasPrice = ((baseGasPrice || 0n) * 15n) / 10n;
-
-    const result = await registrarContract.claimSeed(amount, deadline, signature, {
-        gasPrice,
-        gasLimit,
-    });
-    const data1 = { code: 0, id, data: result };
-    parent.postMessage(JSON.stringify(data1), '*');
-    return data1;
-};
 
 let metaMaskIsInstall: boolean;
 function onMetaMaskIsInstall(cb: Function) {
@@ -110,51 +72,18 @@ function onMainnetIsConnect(cb: Function) {
     }, 500);
 }
 
-async function connectMainNet(id: number) {
-    await window.ethereum.request({
+async function connectMainNet() {
+    window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: CHAIN_ID }],
     });
-    const data = { code: 0, id, data: true };
-    parent.postMessage(JSON.stringify(data), '*');
-    return data;
 }
 
-async function disconnect(id: number) {
+async function disconnect() {
     window.ethereum.request({
         method: 'wallet_requestPermissions',
         params: [{ eth_accounts: {} }],
     });
-    const data = { code: 0, id, data: null };
-    parent.postMessage(JSON.stringify(data), '*');
-    return data;
 }
 
-window.addEventListener(
-    'message',
-    (event) => {
-        if (typeof event.data === 'object') {
-            const { method, params, id } = event.data;
-            if (method === 'signInWithEthereum') {
-                signInWithEthereum(id);
-            } else if (method === 'claimSeed') {
-                claimSeed(id, params);
-            } else if (method === 'metaMaskIsInstall') {
-                onMetaMaskIsInstall((res: boolean) => {
-                    parent.postMessage(JSON.stringify({ code: 0, id, data: res }), '*');
-                });
-            } else if (method === 'mainnetIsConnect') {
-                onMainnetIsConnect((res: boolean) => {
-                    parent.postMessage(JSON.stringify({ code: 0, id, data: res }), '*');
-                });
-            } else if (method === 'connectMainNet') {
-                connectMainNet(id);
-            } else if (method === 'disconnect') {
-                disconnect(id);
-            }
-        }
-    },
-    false,
-);
-
-export { claimSeed, signInWithEthereum, onMetaMaskIsInstall, onMainnetIsConnect, connectMainNet, disconnect };
+export { signInWithEthereum, onMetaMaskIsInstall, onMainnetIsConnect, connectMainNet, disconnect };

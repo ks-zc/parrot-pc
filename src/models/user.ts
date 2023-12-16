@@ -1,7 +1,8 @@
 import { CONFIG } from 'Src/config';
+import { disconnect } from 'Src/metamask';
 import { actions, getState } from './redux';
 import { request } from '../utils/request';
-import { Require, invoke, localStorageSet } from '../utils';
+import { localStorageSet } from '../utils';
 
 interface UserInfo {
     token?: string;
@@ -14,40 +15,16 @@ interface UserInfo {
     level?: number;
 }
 
-interface Claime {
-    amount: number;
-    transactionHash: string;
-    url: string;
-    claimedAt: string;
-}
-
-interface Item {
-    category: string;
-    id: string;
-    text: string;
-    message_count: number;
-}
-
 export default {
     state: {
-        followList: [] as Item[],
         userInfo: {} as UserInfo,
-        claimedList: [] as Claime[],
-        seeds: {
-            total: 0,
-            claimed: 0,
-            available: 0,
-            pending: 0,
-        },
-        page: __DEV__ ? 'Home' : 'Home',
-        homeTab: '/messages/newest',
+        mainnetIsConnect: false,
     },
     actions: {
         logout: () => {
             actions.user.setUserInfo({});
-            actions.user.setState({ followList: [] });
             localStorageSet(CONFIG.PARROT_USER_FOLLOW, '[]');
-            invoke('disconnect', () => {});
+            disconnect();
         },
         getUserInfo: async () => {
             if (!getState('user').userInfo.token) {
@@ -57,13 +34,6 @@ export default {
                 url: `${CONFIG.API_HOST}/user`,
             });
             if (res) {
-                if (!res.profileImageUrl) {
-                    res.profileImageUrl =
-                        {
-                            1: Require('profile0.png'),
-                            2: Require('profile0.png'),
-                        }[res.level!] || Require('profile0.png');
-                }
                 actions.user.updateUserInfo(res);
             }
         },

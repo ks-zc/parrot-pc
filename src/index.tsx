@@ -6,13 +6,12 @@ import { CONFIG } from 'Src/config';
 import { localStorageGet } from './utils';
 import Home from './pages/home';
 import NFT from './pages/nft';
+import './reset.scss';
 
 localStorageGet(CONFIG.PARROT_USER).then((res) => {
     actions.user.setState({ userInfo: JSON.parse(res || '{}') });
-    const root = document.createElement('div');
-    document.documentElement.appendChild(root);
     const C = window.location.href.includes('/nft') ? NFT : Home;
-    createRoot(root).render(
+    createRoot(document.querySelector('#app')!).render(
         <Provider store={store}>
             <C />
         </Provider>,
