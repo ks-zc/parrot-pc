@@ -142,6 +142,7 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                                                                         alignItems: 'center',
                                                                         justifyContent: 'center',
                                                                     },
+                                                                    where: document.querySelector('#wrap')!,
                                                                 },
                                                             );
                                                         }}
@@ -157,6 +158,7 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                                                             backgroundColor: 'transparent',
                                                         },
                                                         backdropClose: true,
+                                                        where: document.querySelector('#wrap')!,
                                                     },
                                                 );
                                             }
