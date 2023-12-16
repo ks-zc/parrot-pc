@@ -3,6 +3,7 @@ import React from 'react';
 import './style.module.scss';
 import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
+import Footer from 'Components/Footer';
 
 const mapState = (state: State) => ({});
 
@@ -101,6 +102,7 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div styleName="mint">GO TO MINT</div>
                         <img src={require('Assets/image6.png')} styleName="image6" alt="" />
                     </div>
+                    <Footer />
                 </div>
             </div>
         );

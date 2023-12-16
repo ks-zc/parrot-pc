@@ -13,7 +13,7 @@ const mapState = (state: State) => ({
     mainnetIsConnect: state.user.mainnetIsConnect,
 });
 
-class Home extends React.PureComponent<ReturnType<typeof mapState>> {
+class Header extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
         const { userInfo, mainnetIsConnect } = this.props;
         return (
@@ -169,4 +169,4 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
     }
 }
 
-export default connect(mapState)(Home);
+export default connect(mapState)(Header);
