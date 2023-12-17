@@ -2,8 +2,11 @@
 import React from 'react';
 import './style.module.scss';
 import { openModal } from 'Components/openModal';
+import { CONFIG } from 'Src/config';
 import { getState } from '../../models/redux';
 import { Require } from '..';
+import { request } from '../request';
+// import Toast from '../Toast';
 
 export function openTaskModal() {
     const close = openModal(<TaskModal close={() => close()} />, {
@@ -43,7 +46,29 @@ class TaskModal extends React.PureComponent<{ close: Function }> {
                             <div styleName="hint">
                                 * X account is one-to-one with the wallet address and cannot be unbound
                             </div>
-                            <div styleName="btn" style={{ width: 228 }} onClick={() => {}}>
+                            <div
+                                styleName="btn"
+                                style={{ width: 228 }}
+                                onClick={async () => {
+                                    const [, res] = await request<{ oauthUrl: string }>({
+                                        url: `${CONFIG.API_HOST}/auth/twitter_oauth_link`,
+                                    });
+                                    if (res) {
+                                        window.open(res.oauthUrl, '_blank');
+
+                                        // const [err] = await request<{ oauthUrl: string }>({
+                                        //     url: `${CONFIG.API_HOST}/auth/bind_twitter`,
+                                        //     params: { code, state },
+                                        // });
+                                        // if (err) {
+                                        //     err.message && Toast.show(err.message);
+                                        // } else {
+                                        //     await actions.user.getUserInfo();
+                                        //     this.setState({ userInfo: getState('user').userInfo });
+                                        // }
+                                    }
+                                }}
+                            >
                                 Bind X Account
                             </div>
                         </div>

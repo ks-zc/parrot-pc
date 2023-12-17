@@ -46,7 +46,7 @@ export default {
         toast.className = 'ks-toast';
         toast.innerHTML = text;
 
-        document.querySelector('#parrot-app-root')!.appendChild(toast);
+        document.querySelector('body')!.appendChild(toast);
         toast.style.marginBottom = `${-toast.clientHeight / 2}px`;
         toast.style.visibility = 'visible';
 
