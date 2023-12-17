@@ -16,9 +16,7 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
         return (
             <div styleName="home">
                 <div styleName="wrap" id="wrap">
-                    <div style={{ height: 90, overflow: 'hidden', position: 'absolute', top: 0, width: '100%' }}>
-                        <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
-                    </div>
+                    <img src={require('Assets/bg4.png')} styleName="bg1" alt="" />
 
                     <Header />
                     <div styleName="block">
