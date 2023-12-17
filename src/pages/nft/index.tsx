@@ -3,6 +3,8 @@ import './style.module.scss';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
 import { connect } from 'react-redux';
+import { openTaskModal } from 'Src/utils/openTaskModal';
+import { openLoginModal } from 'Src/utils/openLoginModal';
 
 const mapState = (state: State) => ({
     userInfo: state.user.userInfo,
@@ -30,6 +32,15 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                         <img
                             styleName="btn"
                             style={{ top: 328 }}
+                            onClick={() => {
+                                if (!userInfo.token) {
+                                    openLoginModal();
+                                    return;
+                                }
+                                if (!userInfo.level) {
+                                    openTaskModal();
+                                }
+                            }}
                             src={userInfo.level ? require('Assets/task.png') : require('Assets/task.png')}
                         />
                     </div>
@@ -41,6 +52,11 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                         <img
                             styleName="btn"
                             style={{ top: 244 }}
+                            onClick={() => {
+                                if (!userInfo.token) {
+                                    openLoginModal();
+                                }
+                            }}
                             src={userInfo.level! > 1 ? require('Assets/apply.png') : require('Assets/apply.png')}
                         />
                     </div>

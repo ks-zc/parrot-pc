@@ -40,7 +40,7 @@ class LoginModal extends React.PureComponent<{ close: Function }> {
 
         return (
             <div styleName="modal">
-                <img styleName="close" src={Require('close.svg')} />
+                <img styleName="close" src={Require('close.svg')} onClick={() => close()} />
                 <div styleName="title">Connect with your wallet</div>
 
                 <div
