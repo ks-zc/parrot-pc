@@ -34,6 +34,13 @@ export default {
                 url: `${CONFIG.API_HOST}/user`,
             });
             if (res) {
+                if (!res.profileImageUrl) {
+                    res.profileImageUrl =
+                        {
+                            1: require('Assets/profile0.png'),
+                            2: require('Assets/profile0.png'),
+                        }[res.level!] || require('Assets/profile0.png');
+                }
                 actions.user.updateUserInfo(res);
             }
         },

@@ -82,3 +82,21 @@ export function throttle<T extends Function>(fn: T, delay: number = 750) {
         }
     }) as unknown as T;
 }
+
+export function parseQueryString(url: string) {
+    const obj: Record<string, string> = {};
+    if (url) {
+        // 兼容多个?的情况
+        url.split('?')
+            .slice(1)
+            .forEach((v) => {
+                v.split('&')
+                    .filter((v1) => v1)
+                    .forEach((v1) => {
+                        const [key, value] = v1.split('=');
+                        obj[key] = value;
+                    });
+            });
+    }
+    return obj;
+}
