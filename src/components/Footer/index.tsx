@@ -14,7 +14,7 @@ export default class Footer extends React.PureComponent {
                     <div styleName="img">
                         <img src={require('Assets/logo.png')} alt="" />
                     </div>
-                    @Parrot_buzz
+                    @Parrot
                 </div>
             </div>
         );

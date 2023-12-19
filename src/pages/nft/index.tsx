@@ -22,15 +22,18 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                     <Header />
                     <div styleName="block">
                         <img styleName="nft" src={require('Assets/nft1.png')} alt="" />
-                        <div styleName="title">PARROT NFT L1</div>
-                        <div styleName="subtitle">
+                        <div styleName="title" style={{ top: 95 }}>
+                            PARROT NFT L1
+                        </div>
+                        <div styleName="subtitle" style={{ top: 156 }}>
                             <div>Holding 「Parrot NFT - L1」</div>
                             to unlock 5 daily spreading spots and earn
                             <div>$SEED tokens</div>
+                            <div style={{ marginTop: 25 }}>Free Mint, Open to All</div>
                         </div>
                         <img
                             styleName="btn"
-                            style={{ top: 328 }}
+                            style={{ top: 360 }}
                             onClick={() => {
                                 if (!userInfo.token) {
                                     openLoginModal();
@@ -40,23 +43,31 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                                     openTaskModal();
                                 }
                             }}
-                            src={userInfo.level ? require('Assets/task.png') : require('Assets/task.png')}
+                            src={userInfo.level ? require('Assets/got.png') : require('Assets/task.png')}
                         />
                     </div>
                     <div styleName="line" />
                     <div styleName="block">
                         <img styleName="nft" src={require('Assets/nft2.png')} alt="" />
-                        <div styleName="title">PARROT NFT L2</div>
-                        <div styleName="subtitle">Free Mint, Open to All</div>
+                        <div styleName="title" style={{ top: 61 }}>
+                            PARROT NFT L2
+                        </div>
+                        <div styleName="subtitle" style={{ top: 122 }}>
+                            Holding 「Parrot NFT - L2」
+                            <div>to unlock 3 Posts & 10 spreading spots daily</div>
+                            <div>and earn more $SEED</div>
+                            <div style={{ marginTop: 20 }}>Free Mint, Open to Whitelisted & Eligible</div>
+                            <div>Applicants</div>
+                        </div>
                         <img
                             styleName="btn"
-                            style={{ top: 244 }}
+                            style={{ top: 359 }}
                             onClick={() => {
                                 if (!userInfo.token) {
                                     openLoginModal();
                                 }
                             }}
-                            src={userInfo.level! > 1 ? require('Assets/apply.png') : require('Assets/apply.png')}
+                            src={userInfo.level! > 1 ? require('Assets/got.png') : require('Assets/apply.png')}
                         />
                     </div>
                     <Footer />
