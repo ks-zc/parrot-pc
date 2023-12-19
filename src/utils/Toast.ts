@@ -25,7 +25,7 @@ export default {
         toast.style.background = 'rgba(0, 0, 0, 0.8)';
         toast.style.bottom = '50%';
         toast.style.color = '#fff';
-        toast.style.fontSize = '14px';
+        toast.style.fontSize = '16px';
         toast.style.display = 'flex';
         toast.style.flexDirection = 'column';
         toast.style.visibility = 'hidden';

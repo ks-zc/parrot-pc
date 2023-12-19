@@ -7,6 +7,7 @@ import { localStorageGet, parseQueryString } from './utils';
 import Home from './pages/home';
 import NFT from './pages/nft';
 import './reset.scss';
+import './keyframes.scss';
 import { onMainnetIsConnect } from './metamask';
 
 if (window.location.pathname.endsWith('/callback')) {
