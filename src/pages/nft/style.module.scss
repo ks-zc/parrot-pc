@@ -53,6 +53,24 @@
                 height: 50px;
                 cursor: pointer;
             }
+            .minted {
+                display: inline-flex;
+                align-items: center;
+                padding: 12px 30px;
+                border-radius: 6px;
+                background: linear-gradient(0deg, #dcdfe2 0%, #dcdfe2 100%), #fff;
+                cursor: not-allowed;
+                line-height: 24px; /* 150% */
+                text-align: center;
+                font-family: PingFang SC;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                color: #fff;
+                letter-spacing: -0.24px;
+                gap: 8px;
+                font-feature-settings: 'clig' off, 'liga' off;
+            }
             .nft {
                 position: absolute;
                 right: 150px;

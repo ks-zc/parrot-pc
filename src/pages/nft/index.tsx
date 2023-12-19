@@ -31,20 +31,24 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                             <div>$SEED tokens</div>
                             <div style={{ marginTop: 25 }}>Free Mint, Open to All</div>
                         </div>
-                        <img
-                            styleName="btn"
-                            style={{ top: 360 }}
-                            onClick={() => {
-                                if (!userInfo.token) {
-                                    openLoginModal();
-                                    return;
-                                }
-                                if (!userInfo.level) {
+                        {userInfo.level ? (
+                            <div styleName="btn minted" style={{ top: 360 }}>
+                                You’ve minted it!
+                            </div>
+                        ) : (
+                            <img
+                                styleName="btn"
+                                style={{ top: 360 }}
+                                onClick={() => {
+                                    if (!userInfo.token) {
+                                        openLoginModal();
+                                        return;
+                                    }
                                     openTaskModal();
-                                }
-                            }}
-                            src={userInfo.level ? require('Assets/got.png') : require('Assets/task.png')}
-                        />
+                                }}
+                                src={require('Assets/task.png')}
+                            />
+                        )}
                     </div>
                     <div styleName="line" />
                     <div styleName="block">
@@ -59,16 +63,22 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                             <div style={{ marginTop: 20 }}>Free Mint, Open to Whitelisted & Eligible</div>
                             <div>Applicants</div>
                         </div>
-                        <img
-                            styleName="btn"
-                            style={{ top: 359 }}
-                            onClick={() => {
-                                if (!userInfo.token) {
-                                    openLoginModal();
-                                }
-                            }}
-                            src={userInfo.level! > 1 ? require('Assets/got.png') : require('Assets/apply.png')}
-                        />
+                        {userInfo.level! > 1 ? (
+                            <div styleName="btn minted" style={{ top: 359 }}>
+                                You’ve minted it!
+                            </div>
+                        ) : (
+                            <img
+                                styleName="btn"
+                                style={{ top: 359 }}
+                                onClick={() => {
+                                    if (!userInfo.token) {
+                                        openLoginModal();
+                                    }
+                                }}
+                                src={require('Assets/apply.png')}
+                            />
+                        )}
                     </div>
                     <Footer />
                 </div>
