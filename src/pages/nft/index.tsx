@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import './style.module.scss';
 import Header from 'Components/Header';
@@ -5,14 +6,22 @@ import Footer from 'Components/Footer';
 import { connect } from 'react-redux';
 import { openTaskModal } from 'Src/utils/openTaskModal';
 import { openLoginModal } from 'Src/utils/openLoginModal';
+import { claimSeed } from 'Src/metamask';
+import { Loading } from 'Src/components/Loading';
 
 const mapState = (state: State) => ({
     userInfo: state.user.userInfo,
 });
 
 class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
+    state = {
+        minting: false,
+    };
+
     render() {
         const { userInfo } = this.props;
+        const { minting } = this.state;
+
         return (
             <div styleName="home">
                 <div styleName="wrap" id="wrap">
@@ -67,14 +76,31 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                             <div styleName="btn minted" style={{ top: 359 }}>
                                 You’ve minted it!
                             </div>
+                        ) : minting ? (
+                            <div styleName="btn minting" style={{ top: 359 }}>
+                                <Loading />
+                                MINT NOW
+                            </div>
                         ) : (
                             <img
                                 styleName="btn"
                                 style={{ top: 359 }}
-                                onClick={() => {
+                                onClick={async () => {
                                     if (!userInfo.token) {
                                         openLoginModal();
+                                        return;
                                     }
+                                    if (!userInfo.level) {
+                                        openTaskModal();
+                                        return;
+                                    }
+                                    if (userInfo.availableSeeds) {
+                                        this.setState({ minting: true });
+                                        await claimSeed();
+                                        this.setState({ minting: false });
+                                        return;
+                                    }
+                                    window.open('____________', '_blank');
                                 }}
                                 src={require('Assets/apply.png')}
                             />

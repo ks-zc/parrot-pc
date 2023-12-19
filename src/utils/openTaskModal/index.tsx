@@ -5,6 +5,7 @@ import './style.module.scss';
 import { openModal } from 'Components/openModal';
 import { CONFIG } from 'Src/config';
 import store from 'Models/index';
+import { Loading } from 'Src/components/Loading';
 import { Provider, actions, connect } from '../../models/redux';
 import { request } from '../request';
 import Toast from '../Toast';
@@ -170,15 +171,7 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                         }
                                     }}
                                 >
-                                    {verifying && (
-                                        <img
-                                            styleName="loading"
-                                            style={{
-                                                animation: 'rotate 4s infinite linear',
-                                            }}
-                                            src={require('Assets/loading.svg')}
-                                        />
-                                    )}
+                                    {verifying && <Loading />}
                                     {verified && <img styleName="verified" src={require('Assets/verified.svg')} />}
                                     {verified ? 'Verified' : verifying ? 'Verifying' : 'Verify'}
                                 </div>

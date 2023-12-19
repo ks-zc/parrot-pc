@@ -1,11 +1,14 @@
 /* eslint-disable no-unsafe-finally */
 /* eslint-disable no-restricted-globals */
-import { BrowserProvider } from 'ethers';
+import { CONFIG } from 'Src/config';
+import { request } from 'Src/utils/request';
+import { BrowserProvider, ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
 
 const isPro = window.location.href.includes('isPro=1');
 const API_HOST = isPro ? 'https://api.parrot.buzz' : 'https://api.staging.parrot.buzz';
 const CHAIN_ID = isPro ? '0x1' : '0xaa36a7';
+const NETWORK = isPro ? 'homestead' : 'sepolia';
 
 declare global {
     interface Window {
@@ -86,4 +89,42 @@ async function disconnect() {
     });
 }
 
-export { signInWithEthereum, onMetaMaskIsInstall, onMainnetIsConnect, connectMainNet, disconnect };
+const claimSeed = async () => {
+    const [, data] = await request<{
+        amount: number;
+        deadline: number;
+        signature: string;
+    }>({
+        url: `${CONFIG.API_HOST}/signature/claim_seed?amount=${111}`,
+    });
+    if (!data) {
+        return;
+    }
+    const provider = new ethers.AlchemyProvider(NETWORK, 'l3hDguWjU2ioFw4VRev6J4UOu1CL3cLg');
+    const { gasPrice: baseGasPrice } = await provider.getFeeData();
+    const { amount, deadline, signature } = data;
+
+    const browserProvider = new BrowserProvider(window.ethereum, 'any');
+    const signer = await browserProvider.getSigner();
+
+    const registrarContract = new ethers.Contract(
+        '0x9b2D2FA0db465C5E12F8e95B125D27c70c3F79cA',
+        require('./one.json').abi,
+        signer,
+    );
+
+    const baseGasLimit = await (registrarContract.connect(signer) as any).claimSeed.estimateGas(
+        amount,
+        deadline,
+        signature,
+    );
+    const gasLimit = (baseGasLimit * 12n) / 10n;
+    const gasPrice = ((baseGasPrice || 0n) * 15n) / 10n;
+
+    await registrarContract.claimSeed(amount, deadline, signature, {
+        gasPrice,
+        gasLimit,
+    });
+};
+
+export { signInWithEthereum, onMetaMaskIsInstall, onMainnetIsConnect, connectMainNet, disconnect, claimSeed };
