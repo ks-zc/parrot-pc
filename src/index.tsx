@@ -10,7 +10,7 @@ import './reset.scss';
 import './keyframes.scss';
 import { onMainnetIsConnect } from './metamask';
 
-if (window.location.pathname.endsWith('/callback')) {
+if (window.location.pathname.endsWith('/bindx')) {
     const { code, state } = parseQueryString(window.location.href);
     if (code && state) {
         localStorage.setItem(CONFIG.PARROT_BIND_TWITTER, JSON.stringify({ time: Date.now(), code, state }));

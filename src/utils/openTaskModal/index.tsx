@@ -139,12 +139,17 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                         marginRight: 12,
                                         ...(bindX ? style : disStyle),
                                     }}
-                                    onClick={() => {
+                                    onClick={async () => {
                                         if (!bindX) {
                                             return;
                                         }
-                                        this.setState({ clickRepost: true });
-                                        window.open('____________', '_blank');
+                                        const [, res] = await request<{ url: string }>({
+                                            url: `${CONFIG.API_HOST}/auth/marketing_tweet_url`,
+                                        });
+                                        if (res) {
+                                            this.setState({ clickRepost: true });
+                                            window.open(res.url, '_blank');
+                                        }
                                     }}
                                 >
                                     Repost
@@ -156,18 +161,22 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                         ...(canVerify || verified ? style : disStyle),
                                         cursor: verified || !canVerify ? 'not-allowed' : 'pointer',
                                     }}
-                                    onClick={() => {
+                                    onClick={async () => {
                                         if (canVerify) {
                                             if (Date.now() - this.time < 60000) {
                                                 Toast.show('Please try again later');
                                                 return;
                                             }
                                             this.setState({ verifying: true });
-                                            this.time = Date.now();
-                                            setTimeout(() => {
+                                            const [, res] = await request<{ url: string }>({
+                                                url: `${CONFIG.API_HOST}/auth/verify_marketing_tweet`,
+                                            });
+                                            this.setState({ verifying: false });
+                                            if (res) {
+                                                this.time = Date.now();
                                                 Toast.show('Reposted Successfully');
-                                                this.setState({ verifying: false, verified: true });
-                                            }, 1000);
+                                                this.setState({ verified: true });
+                                            }
                                         }
                                     }}
                                 >
