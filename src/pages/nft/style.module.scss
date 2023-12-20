@@ -40,7 +40,6 @@
             .subtitle {
                 position: absolute;
                 left: 128px;
-                line-height: normal;
                 font-family: Source Han Sans CN;
                 font-style: normal;
                 font-weight: 400;
@@ -60,7 +59,6 @@
                 border-radius: 6px;
                 background: linear-gradient(0deg, #dcdfe2 0%, #dcdfe2 100%), #fff;
                 cursor: not-allowed;
-                line-height: 24px; /* 150% */
                 text-align: center;
                 font-family: PingFang SC;
                 font-style: normal;
@@ -78,7 +76,6 @@
                 top: 422px;
                 align-items: center;
                 cursor: pointer;
-                line-height: normal;
                 font-family: Source Sans 3;
                 font-style: normal;
                 font-weight: 400;
@@ -92,7 +89,6 @@
                 border-radius: 6px;
                 width: 195px;
                 background: #dcdfe2;
-                line-height: 24px; /* 150% */
                 text-align: center;
                 font-family: PingFang SC;
                 font-style: normal;

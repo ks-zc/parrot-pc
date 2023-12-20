@@ -6,6 +6,7 @@ import { openModal } from 'Components/openModal';
 import { CONFIG } from 'Src/config';
 import store from 'Models/index';
 import { Loading } from 'Src/components/Loading';
+import { claimSeed } from 'Src/metamask';
 import { Provider, actions, connect } from '../../models/redux';
 import { request } from '../request';
 import Toast from '../Toast';
@@ -47,6 +48,7 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
         clickRepost: false,
         verifying: false,
         verified: false,
+        minting: false,
     };
 
     time = 0;
@@ -57,7 +59,7 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
 
     render() {
         const { close, userInfo } = this.props;
-        const { clickRepost, verifying, verified } = this.state;
+        const { clickRepost, verifying, verified, minting } = this.state;
         const bindX = userInfo.isTwitterLinked && !userInfo.isTwitterExpired;
         const canVerify = !verified && clickRepost && !verifying;
         return (
@@ -131,7 +133,7 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                 Spread your wings! Repost the specified tweet on your X account to qualify for a free
                                 minted Parrot NFT L1.
                             </div>
-                            <div style={{ display: 'flex', marginBottom: 32 }}>
+                            <div style={{ display: 'flex' }}>
                                 <div
                                     styleName="btn"
                                     style={{
@@ -186,6 +188,27 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                     {verified ? 'Verified' : verifying ? 'Verifying' : 'Verify'}
                                 </div>
                             </div>
+                            {verified ? (
+                                minting ? (
+                                    <div styleName="mint mintbtn" style={disStyle}>
+                                        <Loading />
+                                        Minting...
+                                    </div>
+                                ) : (
+                                    <img
+                                        styleName="mint"
+                                        src={require('Assets/mint.png')}
+                                        alt=""
+                                        onClick={() => {
+                                            claimSeed(1);
+                                        }}
+                                    />
+                                )
+                            ) : (
+                                <div styleName="mint mintbtn" style={disStyle}>
+                                    MINT NOW
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

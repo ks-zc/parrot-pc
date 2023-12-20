@@ -195,7 +195,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                                 openLoginModal();
                             }}
                         >
-                            Login
+                            Connect
                         </div>
                     )}
                 </div>
