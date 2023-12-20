@@ -12,6 +12,7 @@ interface UserInfo {
     isTwitterLinked?: boolean;
     isTwitterExpired?: boolean;
     profileImageUrl?: string;
+    l2Eligible?: boolean;
     level?: number;
 }
 

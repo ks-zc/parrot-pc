@@ -170,6 +170,7 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                             this.setState({ verifying: true });
                                             const [, res] = await request<{ url: string }>({
                                                 url: `${CONFIG.API_HOST}/auth/verify_marketing_tweet`,
+                                                method: 'post',
                                             });
                                             this.setState({ verifying: false });
                                             if (res) {

@@ -89,27 +89,27 @@ async function disconnect() {
     });
 }
 
-const claimSeed = async () => {
+const claimSeed = async (levelNum: number) => {
     const [, data] = await request<{
-        amount: number;
-        deadline: number;
+        level: number;
+        operation: number;
         signature: string;
     }>({
-        url: `${CONFIG.API_HOST}/signature/claim_seed?amount=${111}`,
+        url: `${CONFIG.API_HOST}/signature/passport?operation=${levelNum - 1}&level=${levelNum}`,
     });
     if (!data) {
         return;
     }
     const provider = new ethers.AlchemyProvider(NETWORK, 'l3hDguWjU2ioFw4VRev6J4UOu1CL3cLg');
     const { gasPrice: baseGasPrice } = await provider.getFeeData();
-    const { amount, deadline, signature } = data;
+    const { level, operation, signature } = data;
 
     const browserProvider = new BrowserProvider(window.ethereum, 'any');
     const signer = await browserProvider.getSigner();
 
     const registrarContract = new ethers.Contract(
         '0x9b2D2FA0db465C5E12F8e95B125D27c70c3F79cA',
-        require('./one.json').abi,
+        require('./two.json').abi,
         signer,
     );
 

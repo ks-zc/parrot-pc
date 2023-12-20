@@ -109,9 +109,9 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                                         openTaskModal();
                                         return;
                                     }
-                                    if (userInfo.availableSeeds) {
+                                    if (userInfo.l2Eligible) {
                                         this.setState({ minting: true });
-                                        await claimSeed();
+                                        await claimSeed(2);
                                         this.setState({ minting: false });
                                         return;
                                     }
