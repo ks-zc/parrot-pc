@@ -88,6 +88,9 @@ const config = {
             verbose: false,
         }),
         new NodePolyfillPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve(process.cwd(), 'index.html'),
+        }),
     ],
     resolve: {
         extensions: ['.js', '.tsx', '.ts', '.scss', '.css', '.png', '.json', '.jsx'],
@@ -117,13 +120,6 @@ const config = {
     },
 };
 
-if (__DEV__) {
-    config.plugins.push(
-        new HtmlWebpackPlugin({
-            template: path.resolve(process.cwd(), 'index.html'),
-        }),
-    );
-}
 const generateScope = genericNames('[local][hash:base64:5]', { context: process.cwd() });
 
 function getCssRules(isModule) {

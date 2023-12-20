@@ -2,7 +2,6 @@ import { CONFIG } from 'Src/config';
 import { disconnect } from 'Src/metamask';
 import { actions, getState } from './redux';
 import { request } from '../utils/request';
-import { localStorageSet } from '../utils';
 
 interface UserInfo {
     token?: string;
@@ -24,7 +23,7 @@ export default {
     actions: {
         logout: () => {
             actions.user.setUserInfo({});
-            localStorageSet(CONFIG.PARROT_USER_FOLLOW, '[]');
+            localStorage.setItem(CONFIG.PARROT_USER_FOLLOW, '[]');
             disconnect();
         },
         getUserInfo: async () => {
@@ -47,7 +46,7 @@ export default {
         },
         setUserInfo: (data: UserInfo) => {
             actions.user.setState({ userInfo: data });
-            localStorageSet(CONFIG.PARROT_USER, JSON.stringify(data));
+            localStorage.setItem(CONFIG.PARROT_USER, JSON.stringify(data));
         },
         updateUserInfo: (data: Partial<UserInfo>) => {
             actions.user.setUserInfo({ ...getState('user').userInfo, ...data });

@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import store from 'Models/index';
 import { Provider, actions } from 'Models/redux';
 import { CONFIG } from 'Src/config';
-import { localStorageGet, parseQueryString } from './utils';
+import { parseQueryString } from './utils';
 import Home from './pages/home';
 import NFT from './pages/nft';
 import './reset.scss';
@@ -17,16 +17,15 @@ if (window.location.pathname.endsWith('/bindx')) {
         window.close();
     }
 } else {
-    localStorageGet(CONFIG.PARROT_USER).then((res) => {
-        actions.user.setState({ userInfo: JSON.parse(res || '{}') });
-        const C = window.location.pathname.endsWith('/nft') ? NFT : Home;
-        onMainnetIsConnect((mainnetIsConnect) => {
-            actions.user.setState({ mainnetIsConnect });
-        });
-        createRoot(document.querySelector('#app')!).render(
-            <Provider store={store}>
-                <C />
-            </Provider>,
-        );
+    const res = localStorage.getItem(CONFIG.PARROT_USER);
+    actions.user.setState({ userInfo: JSON.parse(res || '{}') });
+    const C = window.location.pathname.endsWith('/nft') ? NFT : Home;
+    onMainnetIsConnect((mainnetIsConnect) => {
+        actions.user.setState({ mainnetIsConnect });
     });
+    createRoot(document.querySelector('#app')!).render(
+        <Provider store={store}>
+            <C />
+        </Provider>,
+    );
 }

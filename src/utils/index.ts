@@ -23,22 +23,6 @@ export const Require = (id: string) => {
     return require(`Assets/${id}`);
 };
 
-export async function localStorageSet(key: string, data: string) {
-    if (__DEV__) {
-        localStorage.setItem(key, data);
-    } else {
-        await chrome.storage.local.set({ [key]: data });
-    }
-}
-
-export async function localStorageGet(key: string) {
-    if (__DEV__) {
-        return localStorage.getItem(key);
-    }
-    const res = await chrome.storage.local.get([key]);
-    return res[key] as string;
-}
-
 export function getLength(str: string) {
     return str.replace(/[\u0391-\uFFE5]/g, 'aa').length;
 }
