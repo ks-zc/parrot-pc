@@ -71,6 +71,20 @@
                 gap: 8px;
                 font-feature-settings: 'clig' off, 'liga' off;
             }
+            .openSea {
+                display: flex;
+                position: absolute;
+                left: 128px;
+                top: 422px;
+                align-items: center;
+                cursor: pointer;
+                line-height: normal;
+                font-family: Source Sans 3;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                color: rgba(0, 0, 0, 0.6);
+            }
             .minting {
                 display: flex;
                 justify-content: center;

@@ -30,7 +30,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                     <div
                         styleName="btn"
                         onClick={() => {
-                            window.location.href = `${window.location.origin}/nft`;
+                            window.open('https://twitter.com/Parrot_buzz', '_blank');
                         }}
                     >
                         Launchpad
@@ -46,7 +46,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                     <div
                         styleName="btn"
                         onClick={() => {
-                            window.location.href = `${window.location.origin}/nft`;
+                            window.open('https://twitter.com/Parrot_buzz', '_blank');
                         }}
                     >
                         X (Twitter)
@@ -54,7 +54,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                     <div
                         styleName="btn"
                         onClick={() => {
-                            window.location.href = `${window.location.origin}/nft`;
+                            window.open('https://twitter.com/Parrot_buzz', '_blank');
                         }}
                     >
                         Whitepaper

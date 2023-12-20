@@ -41,9 +41,24 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                             <div style={{ marginTop: 25 }}>Free Mint, Open to All</div>
                         </div>
                         {userInfo.level ? (
-                            <div styleName="btn minted" style={{ top: 360 }}>
-                                You’ve minted it!
-                            </div>
+                            <>
+                                <div styleName="btn minted" style={{ top: 360 }}>
+                                    You’ve minted it!
+                                </div>
+                                <div
+                                    styleName="openSea"
+                                    onClick={() => {
+                                        window.open('____________', '_blank');
+                                    }}
+                                >
+                                    View on OpenSea
+                                    <img
+                                        style={{ height: 14, marginLeft: 5 }}
+                                        src={require('Assets/arrow.svg')}
+                                        alt=""
+                                    />
+                                </div>
+                            </>
                         ) : (
                             <img
                                 styleName="btn"
@@ -79,7 +94,7 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                         ) : minting ? (
                             <div styleName="btn minting" style={{ top: 359 }}>
                                 <Loading />
-                                MINT NOW
+                                Minting...
                             </div>
                         ) : (
                             <img
