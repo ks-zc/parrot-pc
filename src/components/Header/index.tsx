@@ -17,162 +17,92 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
         const { userInfo, mainnetIsConnect } = this.props;
         return (
-            <div styleName="header">
-                <img
-                    onClick={() => {
-                        window.location.href = window.location.origin;
-                    }}
-                    styleName="parrot"
-                    src={require('Assets/parrot.png')}
-                    alt=""
-                />
-                <div styleName="btns">
-                    <div
-                        styleName="btn"
+            <div styleName="wrap">
+                <div styleName="header">
+                    <img
                         onClick={() => {
-                            window.open('https://twitter.com/Parrot_buzz', '_blank');
+                            window.location.href = window.location.origin;
                         }}
-                    >
-                        Launchpad
+                        styleName="parrot"
+                        src={require('Assets/parrot.png')}
+                        alt=""
+                    />
+                    <div styleName="btns">
+                        <div
+                            styleName="btn"
+                            onClick={() => {
+                                window.open('https://twitter.com/Parrot_buzz', '_blank');
+                            }}
+                        >
+                            Launchpad
+                        </div>
+                        <div
+                            styleName="btn"
+                            onClick={() => {
+                                window.location.href = `${window.location.origin}/nft`;
+                            }}
+                        >
+                            🔥Freemint
+                        </div>
+                        <div
+                            styleName="btn"
+                            onClick={() => {
+                                window.open('https://twitter.com/Parrot_buzz', '_blank');
+                            }}
+                        >
+                            X (Twitter)
+                        </div>
+                        <div
+                            styleName="btn"
+                            onClick={() => {
+                                window.open('https://parrot-2.gitbook.io/parrot-white-paper/', '_blank');
+                            }}
+                        >
+                            Whitepaper
+                        </div>
                     </div>
-                    <div
-                        styleName="btn"
-                        onClick={() => {
-                            window.location.href = `${window.location.origin}/nft`;
-                        }}
-                    >
-                        🔥Freemint
-                    </div>
-                    <div
-                        styleName="btn"
-                        onClick={() => {
-                            window.open('https://twitter.com/Parrot_buzz', '_blank');
-                        }}
-                    >
-                        X (Twitter)
-                    </div>
-                    <div
-                        styleName="btn"
-                        onClick={() => {
-                            window.open('https://twitter.com/Parrot_buzz', '_blank');
-                        }}
-                    >
-                        Whitepaper
-                    </div>
-                </div>
 
-                <div styleName="right">
-                    {userInfo.address ? (
-                        <div styleName="account">
-                            <div styleName="balance">
-                                <img src={require('Assets/balance.svg')} styleName="icon" />
-                                {formatNum(userInfo.availableSeeds || 0)}
-                            </div>
+                    <div styleName="right">
+                        {userInfo.address ? (
+                            <div styleName="account">
+                                <div styleName="balance">
+                                    <img src={require('Assets/balance.svg')} styleName="icon" />
+                                    {formatNum(userInfo.availableSeeds || 0)}
+                                </div>
 
-                            <div
-                                styleName="network"
-                                onClick={() => {
-                                    class A extends React.PureComponent<{ mainnetIsConnect: boolean }> {
-                                        render() {
-                                            return (
-                                                <div
-                                                    styleName="mainnet"
-                                                    onClick={() => {
-                                                        if (!this.props.mainnetIsConnect) {
-                                                            connectMainNet();
-                                                        }
-                                                    }}
-                                                >
-                                                    <img styleName="icon2" src={require('Assets/network.svg')} />
-                                                    Ethereum
-                                                    {this.props.mainnetIsConnect && (
-                                                        <img styleName="right-cion" src={require('Assets/right.svg')} />
-                                                    )}
-                                                </div>
-                                            );
+                                <div
+                                    styleName="network"
+                                    onClick={() => {
+                                        class A extends React.PureComponent<{ mainnetIsConnect: boolean }> {
+                                            render() {
+                                                return (
+                                                    <div
+                                                        styleName="mainnet"
+                                                        onClick={() => {
+                                                            if (!this.props.mainnetIsConnect) {
+                                                                connectMainNet();
+                                                            }
+                                                        }}
+                                                    >
+                                                        <img styleName="icon2" src={require('Assets/network.svg')} />
+                                                        Ethereum
+                                                        {this.props.mainnetIsConnect && (
+                                                            <img
+                                                                styleName="right-cion"
+                                                                src={require('Assets/right.svg')}
+                                                            />
+                                                        )}
+                                                    </div>
+                                                );
+                                            }
                                         }
-                                    }
-                                    const B = connect((state: State) => ({
-                                        mainnetIsConnect: state.user.mainnetIsConnect,
-                                    }))(A);
-                                    openModal(
-                                        <Provider store={store}>
-                                            <B />
-                                        </Provider>,
-                                        {
-                                            style: {
-                                                backgroundColor: 'transparent',
-                                            },
-                                            backdropClose: true,
-                                            where: document.querySelector('#wrap')!,
-                                        },
-                                    );
-                                }}
-                            >
-                                <img
-                                    styleName="icon1"
-                                    src={
-                                        mainnetIsConnect
-                                            ? require('Assets/network.svg')
-                                            : require('Assets/nonetwork.svg')
-                                    }
-                                />
-                                <img styleName="arrow1" src={require('Assets/arrow1.svg')} />
-                                {mainnetIsConnect || <div styleName="hint">The current network is not supported.</div>}
-                            </div>
-
-                            <div
-                                styleName="id"
-                                onClick={() => {
-                                    if (!userInfo.isTwitterLinked || userInfo.isTwitterExpired) {
-                                        openLoginModal();
-                                    } else {
-                                        const close1 = openModal(
-                                            <div
-                                                styleName="logout"
-                                                style={{
-                                                    backgroundImage: `url(${require('Assets/logout-wrap.svg')})`,
-                                                }}
-                                                onClick={() => {
-                                                    close1();
-                                                    const close = openModal(
-                                                        <div styleName="logout-confirm">
-                                                            <div styleName="text1">Log out of Parrot?</div>
-                                                            <div styleName="text2">@{userInfo.twitterUserName}</div>
-                                                            <div styleName="btns">
-                                                                <div
-                                                                    styleName="btn cancel"
-                                                                    onClick={() => {
-                                                                        close();
-                                                                    }}
-                                                                >
-                                                                    Cancle
-                                                                </div>
-                                                                <div
-                                                                    styleName="btn confirm"
-                                                                    onClick={() => {
-                                                                        actions.user.logout();
-                                                                        close();
-                                                                    }}
-                                                                >
-                                                                    Confirm
-                                                                </div>
-                                                            </div>
-                                                        </div>,
-                                                        {
-                                                            style: {
-                                                                display: 'flex',
-                                                                alignItems: 'center',
-                                                                justifyContent: 'center',
-                                                            },
-                                                            where: document.querySelector('#wrap')!,
-                                                        },
-                                                    );
-                                                }}
-                                            >
-                                                <img src={require('Assets/logout.svg')} styleName="logout-icon" />
-                                                disconnect
-                                            </div>,
+                                        const B = connect((state: State) => ({
+                                            mainnetIsConnect: state.user.mainnetIsConnect,
+                                        }))(A);
+                                        openModal(
+                                            <Provider store={store}>
+                                                <B />
+                                            </Provider>,
                                             {
                                                 style: {
                                                     backgroundColor: 'transparent',
@@ -181,23 +111,100 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                                                 where: document.querySelector('#wrap')!,
                                             },
                                         );
-                                    }
+                                    }}
+                                >
+                                    <img
+                                        styleName="icon1"
+                                        src={
+                                            mainnetIsConnect
+                                                ? require('Assets/network.svg')
+                                                : require('Assets/nonetwork.svg')
+                                        }
+                                    />
+                                    <img styleName="arrow1" src={require('Assets/arrow1.svg')} />
+                                    {mainnetIsConnect || (
+                                        <div styleName="hint">The current network is not supported.</div>
+                                    )}
+                                </div>
+
+                                <div
+                                    styleName="id"
+                                    onClick={() => {
+                                        if (!userInfo.isTwitterLinked || userInfo.isTwitterExpired) {
+                                            openLoginModal();
+                                        } else {
+                                            const close1 = openModal(
+                                                <div
+                                                    styleName="logout"
+                                                    style={{
+                                                        backgroundImage: `url(${require('Assets/logout-wrap.svg')})`,
+                                                    }}
+                                                    onClick={() => {
+                                                        close1();
+                                                        const close = openModal(
+                                                            <div styleName="logout-confirm">
+                                                                <div styleName="text1">Log out of Parrot?</div>
+                                                                <div styleName="text2">@{userInfo.twitterUserName}</div>
+                                                                <div styleName="btns">
+                                                                    <div
+                                                                        styleName="btn cancel"
+                                                                        onClick={() => {
+                                                                            close();
+                                                                        }}
+                                                                    >
+                                                                        Cancle
+                                                                    </div>
+                                                                    <div
+                                                                        styleName="btn confirm"
+                                                                        onClick={() => {
+                                                                            actions.user.logout();
+                                                                            close();
+                                                                        }}
+                                                                    >
+                                                                        Confirm
+                                                                    </div>
+                                                                </div>
+                                                            </div>,
+                                                            {
+                                                                style: {
+                                                                    display: 'flex',
+                                                                    alignItems: 'center',
+                                                                    justifyContent: 'center',
+                                                                },
+                                                                where: document.querySelector('#wrap')!,
+                                                            },
+                                                        );
+                                                    }}
+                                                >
+                                                    <img src={require('Assets/logout.svg')} styleName="logout-icon" />
+                                                    disconnect
+                                                </div>,
+                                                {
+                                                    style: {
+                                                        backgroundColor: 'transparent',
+                                                    },
+                                                    backdropClose: true,
+                                                    where: document.querySelector('#wrap')!,
+                                                },
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <img src={require('Assets/avatar.svg')} styleName="icon" />
+                                    {formatAddress(userInfo.address)}
+                                </div>
+                            </div>
+                        ) : (
+                            <div
+                                styleName="login"
+                                onClick={() => {
+                                    openLoginModal();
                                 }}
                             >
-                                <img src={require('Assets/avatar.svg')} styleName="icon" />
-                                {formatAddress(userInfo.address)}
+                                Connect
                             </div>
-                        </div>
-                    ) : (
-                        <div
-                            styleName="login"
-                            onClick={() => {
-                                openLoginModal();
-                            }}
-                        >
-                            Connect
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         );

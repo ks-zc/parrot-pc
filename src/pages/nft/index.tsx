@@ -24,11 +24,10 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
 
         return (
             <div styleName="home">
+                <img src={require('Assets/bg4.png')} styleName="bg4" alt="" />
+                <img src={require('Assets/bg5.png')} styleName="bg5" alt="" />
+                <Header />
                 <div styleName="wrap" id="wrap">
-                    <img src={require('Assets/bg4.png')} styleName="bg4" alt="" />
-                    <img src={require('Assets/bg5.png')} styleName="bg5" alt="" />
-
-                    <Header />
                     <div styleName="block">
                         <img styleName="nft" src={require('Assets/nft1.png')} alt="" />
                         <div styleName="title" style={{ top: 95 }}>
@@ -121,8 +120,8 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                             />
                         )}
                     </div>
-                    <Footer />
                 </div>
+                <Footer />
             </div>
         );
     }

@@ -1,29 +1,31 @@
 .home {
     overflow-y: scroll;
+    position: relative;
     width: 100vw;
     height: 100vh;
+    .bg4 {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 90px;
+    }
+    .bg5 {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 90px;
+        z-index: -1;
+        width: 100%;
+        min-width: 1440px;
+        height: 972px;
+    }
     .wrap {
         position: relative;
         margin: 0 auto;
         width: 1440px;
-        min-height: 100%;
-        .bg4 {
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            width: 100%;
-            height: 90px;
-        }
-        .bg5 {
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 90px;
-            z-index: -1;
-            width: 100%;
-        }
         .block {
             position: relative;
             height: 486px;

@@ -1,34 +1,39 @@
 .home {
     overflow-y: scroll;
+    position: relative;
     width: 100vw;
     height: 100vh;
+    .bg1 {
+        display: block;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        min-width: 1440px;
+        height: 700px;
+    }
+    .bg2 {
+        display: block;
+        position: absolute;
+        top: 700px;
+        z-index: -1;
+        width: 100%;
+        min-width: 1440px;
+        height: 1029px;
+    }
+    .bg3 {
+        position: absolute;
+        top: 1729px;
+        z-index: -1;
+        width: 100%;
+        min-width: 1440px;
+        height: 1610px;
+    }
     .wrap {
         position: relative;
         margin: 0 auto;
         width: 1440px;
         min-height: 100%;
-        .bg1 {
-            display: block;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            width: 100%;
-        }
-        .bg2 {
-            display: block;
-            position: absolute;
-            top: 700px;
-            z-index: -1;
-            width: 100%;
-        }
-        .bg3 {
-            position: absolute;
-            top: 1729px;
-            z-index: -1;
-            width: 1440px;
-            width: 100%;
-            height: 1610px;
-        }
         .why {
             position: relative;
             top: 43px;
@@ -212,59 +217,63 @@
                 }
             }
         }
-        .div3 {
-            position: relative;
-            width: 100%;
-            height: 401px;
-            background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
-            .text5 {
-                position: absolute;
-                left: 164px;
-                top: 95px;
-                font-family: Source Han Sans CN;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 40px;
-                color: #fff;
-            }
-            .text6 {
-                position: absolute;
-                left: 164px;
-                top: 162px;
-                width: 600px;
-                font-family: Source Han Sans CN;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 28px;
-                color: rgba(255, 255, 255, 0.6);
-            }
-            .mint {
-                display: flex;
-                position: absolute;
-                left: 164px;
-                top: 274px;
-                align-items: center;
-                padding: 12px 56px;
-                border-radius: 6px;
-                background: #fff;
-                cursor: pointer;
-                text-align: center;
-                font-family: PingFang SC;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 16px;
-                color: #000;
-                letter-spacing: -0.24px;
-                gap: 8px;
-                font-feature-settings: 'clig' off, 'liga' off;
-            }
-            .image6 {
-                position: absolute;
-                right: 37px;
-                bottom: 0;
-                width: 678px;
-                height: 355px;
-            }
+    }
+    .wrap1 {
+        width: 100%;
+        background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
+    }
+    .div3 {
+        position: relative;
+        margin: 0 auto;
+        width: 1440px;
+        height: 401px;
+        .text5 {
+            position: absolute;
+            left: 164px;
+            top: 95px;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 40px;
+            color: #fff;
+        }
+        .text6 {
+            position: absolute;
+            left: 164px;
+            top: 162px;
+            width: 600px;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .mint {
+            display: flex;
+            position: absolute;
+            left: 164px;
+            top: 274px;
+            align-items: center;
+            padding: 12px 56px;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+            font-family: PingFang SC;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            color: #000;
+            letter-spacing: -0.24px;
+            gap: 8px;
+            font-feature-settings: 'clig' off, 'liga' off;
+        }
+        .image6 {
+            position: absolute;
+            right: 37px;
+            bottom: 0;
+            width: 678px;
+            height: 355px;
         }
     }
 }

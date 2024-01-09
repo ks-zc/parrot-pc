@@ -11,11 +11,11 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
         return (
             <div styleName="home">
+                <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
+                <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
+                <img src={require('Assets/bg3.png')} styleName="bg3" alt="" />
+                <Header />
                 <div styleName="wrap" id="wrap">
-                    <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
-                    <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
-                    <img src={require('Assets/bg3.png')} styleName="bg3" alt="" />
-                    <Header />
                     <div styleName="div1">
                         <div styleName="text1">Web3 Content Social Protocol</div>
                         <div styleName="text2">Let Your Spread Earn! </div>
@@ -94,6 +94,8 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div styleName="wrap1">
                     <div styleName="div3">
                         <div styleName="text5">Mint Parrot NFT to join us</div>
                         <div styleName="text6">
@@ -102,8 +104,9 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div styleName="mint">GO TO MINT</div>
                         <img src={require('Assets/image6.png')} styleName="image6" alt="" />
                     </div>
-                    <Footer />
                 </div>
+
+                <Footer />
             </div>
         );
     }

@@ -1,9 +1,13 @@
+.wrap {
+    width: 100%;
+    background: linear-gradient(0deg, #000 0%, #000 100%), #000;
+}
 .footer {
     position: relative;
     flex-shrink: 0;
-    width: 100%;
+    margin: 0 auto;
+    width: 1440px;
     height: 275px;
-    background: linear-gradient(0deg, #000 0%, #000 100%), #000;
     .text1 {
         position: absolute;
         left: 110px;
