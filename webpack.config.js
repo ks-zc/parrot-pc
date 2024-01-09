@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const genericNames = require('generic-names');
 const TerserPlugin = require('terser-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const pxToViewport = require('postcss-px-to-viewport');
 
 const __DEV__ = process.env.NODE_ENV === 'dev';
 
@@ -140,6 +141,20 @@ function getCssRules(isModule) {
                         : false,
                     url: false,
                     sourceMap: false,
+                },
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        plugins: [
+                            pxToViewport(
+                                require(path.resolve(process.cwd(), 'postcss.config.js')).plugins[
+                                    'postcss-px-to-viewport'
+                                ],
+                            ),
+                        ],
+                    },
                 },
             },
             'sass-loader',
