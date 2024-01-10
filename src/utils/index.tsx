@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router';
+import React from 'react';
+
 /* eslint-disable no-param-reassign */
 export function sleep(ms: number) {
     return new Promise((reslove) => {
@@ -83,4 +86,8 @@ export function parseQueryString(url: string) {
             });
     }
     return obj;
+}
+
+export function withNavigation(Component: any) {
+    return (props: any) => <Component {...props} navigate={useNavigate()} />;
 }

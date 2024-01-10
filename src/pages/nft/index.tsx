@@ -8,6 +8,7 @@ import { openTaskModal } from 'Src/utils/openTaskModal';
 import { openLoginModal } from 'Src/utils/openLoginModal';
 import { claimSeed } from 'Src/metamask';
 import { Loading } from 'Src/components/Loading';
+import { withNavigation } from 'Src/utils';
 
 const mapState = (state: State) => ({
     userInfo: state.user.userInfo,
@@ -127,4 +128,4 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
     }
 }
 
-export default connect(mapState)(NFT);
+export default connect(mapState)(withNavigation(NFT));

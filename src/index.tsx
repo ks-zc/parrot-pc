@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import store from 'Models/index';
 import { Provider, actions } from 'Models/redux';
 import { CONFIG } from 'Src/config';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { parseQueryString } from './utils';
 import Home from './pages/home';
 import NFT from './pages/nft';
@@ -19,13 +20,23 @@ if (window.location.pathname.endsWith('/bindx')) {
 } else {
     const res = localStorage.getItem(CONFIG.PARROT_USER);
     actions.user.setState({ userInfo: JSON.parse(res || '{}') });
-    const C = window.location.pathname.endsWith('/nft') ? NFT : Home;
     onMainnetIsConnect((mainnetIsConnect) => {
         actions.user.setState({ mainnetIsConnect });
     });
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Home />,
+        },
+        {
+            path: '/nft',
+            element: <NFT />,
+        },
+    ]);
+
     createRoot(document.querySelector('#app')!).render(
         <Provider store={store}>
-            <C />
+            <RouterProvider router={router} />
         </Provider>,
     );
 }

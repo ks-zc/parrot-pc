@@ -224,3 +224,52 @@
         }
     }
 }
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    padding-right: 30wpx;
+    width: 750wpx;
+    height: 100wpx;
+    background: rgba(0, 0, 0, 0.16);
+    line-height: 20wpx; /* 83.333% */
+    text-align: right;
+    font-family: Outfit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24wpx;
+    color: #fff;
+    .menu {
+        flex-shrink: 0;
+        margin-left: 20wpx;
+        width: 28wpx;
+        height: 28wpx;
+    }
+}
+.list {
+    display: flex;
+    position: absolute;
+    right: 30wpx;
+    top: 172wpx;
+    flex-direction: column;
+    flex-shrink: 0;
+    border: 1px solid #e7e7e7;
+    border-radius: 8wpx;
+    width: 248wpx;
+    height: 319wpx;
+    background: #fff;
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        line-height: 20wpx; /* 83.333% */
+        text-align: right;
+        font-family: Outfit;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24wpx;
+        color: #333;
+    }
+}

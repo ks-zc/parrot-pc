@@ -1,13 +1,14 @@
 /* eslint-disable max-classes-per-file */
 import React from 'react';
 import './style.module.scss';
-import { formatAddress, formatNum } from 'Src/utils';
+import { formatAddress, formatNum, withNavigation } from 'Src/utils';
 import { openModal } from 'Src/components/openModal';
 import { Provider, actions, connect } from 'Src/models/redux';
 import store from 'Models/index';
 import { openLoginModal } from 'Src/utils/openLoginModal';
 import { connectMainNet } from 'Src/metamask';
 import { CONFIG } from 'Src/config';
+import { NavigateFunction } from 'react-router';
 import Phone from './phone';
 
 const mapState = (state: State) => ({
@@ -15,7 +16,7 @@ const mapState = (state: State) => ({
     mainnetIsConnect: state.user.mainnetIsConnect,
 });
 
-class Header extends React.PureComponent<ReturnType<typeof mapState>> {
+class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigate: NavigateFunction }> {
     render() {
         if (window.innerWidth < 500) {
             return <Phone />;
@@ -36,7 +37,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.location.href = `${window.location.origin}`;
+                                this.props.navigate('/');
                             }}
                         >
                             Launchpad
@@ -44,7 +45,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.location.href = `${window.location.origin}/nft`;
+                                this.props.navigate('/nft');
                             }}
                         >
                             🔥Freemint
@@ -216,4 +217,4 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
     }
 }
 
-export default connect(mapState)(Header);
+export default connect(mapState)(withNavigation(Header));
