@@ -36,7 +36,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.open(CONFIG.LAUNCHPAD, '_blank');
+                                window.location.href = `${window.location.origin}`;
                             }}
                         >
                             Launchpad

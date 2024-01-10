@@ -6,5 +6,4 @@ export const CONFIG = {
     PARROT_USER: '__parrot-user__',
     TWITTER: 'https://twitter.com/Parrot_buzz',
     WHITE_PAPER: 'https://parrot-2.gitbook.io/parrot-white-paper/',
-    LAUNCHPAD: 'https://www.baidu.com/',
 };
