@@ -4,4 +4,253 @@
     width: 100vw;
     height: 100vh;
     background-color: aqua;
+    .why {
+        position: absolute;
+        top: 1107wpx;
+        width: 100%;
+        text-align: center;
+        font-family: Source Han Sans CN;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 83wpx;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .div1 {
+        position: relative;
+        width: 100%;
+        height: 960wpx;
+        .text1 {
+            position: absolute;
+            left: 60wpx;
+            top: 60wpx;
+            line-height: 20wpx; /* 64.516% */
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 31wpx;
+            color: #fff;
+        }
+        .text2 {
+            position: absolute;
+            left: 65wpx;
+            top: 109wpx;
+            width: 630wpx;
+            line-height: 88%; /* 96.8px */
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 91wpx;
+            color: #fff;
+            letter-spacing: -1.82px;
+        }
+        .download-btn {
+            display: flex;
+            position: absolute;
+            left: 65wpx;
+            top: 344wpx;
+            align-items: center;
+            flex-shrink: 0;
+            border: 1px solid #fff;
+            border-radius: 8wpx;
+            width: 364wpx;
+            height: 64wpx;
+            cursor: pointer;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24wpx;
+            color: #fff;
+            .chrome {
+                flex-shrink: 0;
+                margin-left: 24wpx;
+                margin-right: 13wpx;
+                width: 36wpx;
+                height: 36wpx;
+            }
+            .download {
+                position: absolute;
+                right: 22wpx;
+                flex-shrink: 0;
+                width: 24wpx;
+                height: 24wpx;
+            }
+        }
+        .image1 {
+            position: absolute;
+            left: 162wpx;
+            top: 499wpx;
+            flex-shrink: 0;
+            width: 437.914wpx;
+            height: 404.827wpx;
+        }
+    }
+    .div-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        margin: 0 auto;
+        margin-top: 30wpx;
+        padding: 44wpx;
+        padding-bottom: 35wpx;
+        border-radius: 20wpx;
+        width: 678wpx;
+        background: #f7f7f7;
+        .image2 {
+            flex-shrink: 0;
+            margin-bottom: 20wpx;
+            width: 590wpx;
+            height: 440wpx;
+        }
+        .title {
+            line-height: 120%; /* 57.6px */
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 46wpx;
+            color: var(--Darkness, #070707);
+            letter-spacing: -0.96wpx;
+        }
+        .subtitle {
+            margin-top: 20wpx;
+            line-height: normal;
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24wpx;
+            color: #333;
+        }
+    }
+    .div2 {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 40wpx;
+        .text3 {
+            margin-top: 80wpx;
+            line-height: 88%; /* 70.4px */
+            text-align: center;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 80wpx;
+            color: #000;
+        }
+        .text4 {
+            margin-top: 17wpx;
+            margin-bottom: 70wpx;
+            line-height: 140%; /* 28px */
+            text-align: center;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20wpx;
+            color: #000;
+            letter-spacing: 2wpx;
+        }
+        .block1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .svg1 {
+                flex-shrink: 0;
+                margin-bottom: 12wpx;
+                width: 50wpx;
+                height: 50wpx;
+            }
+            .title1 {
+                margin-bottom: 14wpx;
+                line-height: 120%; /* 57.6px */
+                text-align: center;
+                font-family: Outfit;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 48wpx;
+                color: var(--Darkness, #070707);
+                letter-spacing: -0.96px;
+            }
+            .subtitle1 {
+                margin-bottom: 48wpx;
+                line-height: normal;
+                text-align: center;
+                font-family: Inter;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24wpx;
+                color: #333;
+            }
+        }
+        .image5 {
+            position: relative;
+            left: -50wpx;
+            flex-shrink: 0;
+            margin-top: 60wpx;
+            width: 420wpx;
+            height: 426.595wpx;
+        }
+        .share {
+            flex-shrink: 0;
+            margin-top: 35wpx;
+            width: 455wpx;
+            height: 44wpx;
+            cursor: pointer;
+        }
+    }
+    .div3 {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 116wpx;
+        background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
+        .text5 {
+            margin-top: 88wpx;
+            line-height: 88%; /* 35.2px */
+            text-align: center;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 40wpx;
+            color: #fff;
+        }
+        .text6 {
+            margin-top: 16wpx;
+            width: 570wpx;
+            line-height: normal;
+            text-align: center;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28wpx;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .image6 {
+            position: relative;
+            left: 50wpx;
+            flex-shrink: 0;
+            margin-top: 67wpx;
+            width: 678wpx;
+            height: 350wpx;
+        }
+        .mint {
+            display: flex;
+            align-items: center;
+            margin-top: 36wpx;
+            margin-bottom: 66wpx;
+            padding: 15.5wpx 72.333wpx;
+            border-radius: 7.75wpx;
+            background: #fff;
+            line-height: 31wpx; /* 150% */
+            text-align: center;
+            font-family: PingFang SC;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20.667wpx;
+            color: #000;
+            letter-spacing: -0.31px;
+            gap: 10.333wpx;
+            font-feature-settings: 'clig' off, 'liga' off;
+        }
+    }
 }
