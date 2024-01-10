@@ -199,8 +199,32 @@ class TaskModalC extends React.PureComponent<{ close: Function } & ReturnType<ty
                                         styleName="mint"
                                         src={require('Assets/mint.png')}
                                         alt=""
-                                        onClick={() => {
-                                            claimSeed(1);
+                                        onClick={async () => {
+                                            this.setState({ minting: true });
+                                            const res = await claimSeed(1);
+                                            if (!res) return;
+                                            close();
+                                            const close1 = openModal(
+                                                <div styleName="congrats">
+                                                    <img
+                                                        styleName="close1"
+                                                        src={require('Assets/close.svg')}
+                                                        onClick={() => close1()}
+                                                    />
+                                                    <img styleName="image7" src={require('Assets/image7.png')} />
+                                                    <div styleName="title1">Congrats!</div>
+                                                    <div styleName="text1">
+                                                        Go Claim Your Parrot NFT L1 & Happy Spreading!
+                                                    </div>
+                                                </div>,
+                                                {
+                                                    style: {
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                    },
+                                                },
+                                            );
                                         }}
                                     />
                                 )

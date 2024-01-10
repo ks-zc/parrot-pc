@@ -98,7 +98,7 @@ const claimSeed = async (levelNum: number) => {
         url: `${CONFIG.API_HOST}/signature/passport?operation=${levelNum - 1}&level=${levelNum}`,
     });
     if (!data) {
-        return;
+        return false;
     }
     const provider = new ethers.AlchemyProvider(NETWORK, 'l3hDguWjU2ioFw4VRev6J4UOu1CL3cLg');
     const { gasPrice: baseGasPrice } = await provider.getFeeData();
@@ -125,6 +125,7 @@ const claimSeed = async (levelNum: number) => {
         gasPrice,
         gasLimit,
     });
+    return true;
 };
 
 export { signInWithEthereum, onMetaMaskIsInstall, onMainnetIsConnect, connectMainNet, disconnect, claimSeed };
