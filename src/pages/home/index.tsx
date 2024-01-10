@@ -4,11 +4,15 @@ import './style.module.scss';
 import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
+import Phone from './phone';
 
 const mapState = (state: State) => ({});
 
 class Home extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
+        if (window.innerWidth < 500) {
+            return <Phone />;
+        }
         return (
             <div styleName="home">
                 <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />

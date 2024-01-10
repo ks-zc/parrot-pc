@@ -1,79 +1,66 @@
-.wrap {
-    border-bottom: 1px solid #fff;
-    width: 100%;
-    height: 90px;
-}
+
 .header {
     display: flex;
     position: relative;
     align-items: center;
     flex-shrink: 0;
-    margin: 0 auto;
-    width: 1440px;
-    height: 100%;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    height: 90wpx;
+    background-color: red;
     .parrot {
         position: relative;
-        top: -2px;
+        top: -2wpx;
         flex-shrink: 0;
-        margin-left: 51px;
-        width: 132px;
-        height: 30px;
+        margin-left: 25wpx;
+        width: 193.6wpx;
+        height: 44wpx;
         cursor: pointer;
     }
     .btns {
-        display: flex;
-        align-items: center;
-        margin-left: 49px;
-        padding-left: 67px;
+        margin-left: 28.4wpx;
         border-left: 1px solid #fff;
         height: 100%;
-        .btn {
-            margin-right: 40px;
-            cursor: pointer;
-            font-family: Outfit;
-            font-style: normal;
-            font-weight: 900;
-            font-size: 16px;
-            color: #f2f2f2;
-        }
     }
     .right {
         display: flex;
         position: absolute;
-        right: 30px;
+        right: 30wpx;
+        transform: scale(1.5);
+        transform-origin: 100%;
         .login {
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 6px;
-            width: 174px;
-            height: 48px;
+            border-radius: 6wpx;
+            width: 174wpx;
+            height: 48wpx;
             background: #fff;
             cursor: pointer;
             text-align: center;
             font-family: PingFang SC;
             font-style: normal;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 16wpx;
             color: #000;
             letter-spacing: -0.24px;
             font-feature-settings: 'clig' off, 'liga' off;
         }
         .account {
             display: flex;
-            font-size: 12px;
+            font-size: 12wpx;
             color: #282828;
             .balance {
                 display: flex;
                 align-items: center;
-                padding: 0 12px;
-                border-radius: 43px;
-                height: 26px;
+                padding: 0 12wpx;
+                border-radius: 43wpx;
+                height: 26wpx;
                 background: #ffeacb;
                 .icon {
-                    margin-right: 2px;
-                    width: 14px;
-                    height: 14px;
+                    margin-right: 2wpx;
+                    width: 14wpx;
+                    height: 14wpx;
                 }
             }
             .network {
@@ -81,36 +68,36 @@
                 position: relative;
                 justify-content: space-between;
                 align-items: center;
-                margin-left: 8px;
-                padding: 0 6px;
-                border-radius: 43px;
-                width: 45px;
-                height: 26px;
+                margin-left: 8wpx;
+                padding: 0 6wpx;
+                border-radius: 43wpx;
+                width: 45wpx;
+                height: 26wpx;
                 background: linear-gradient(180deg, #fff 0%, #f0f3ff 100%);
                 cursor: pointer;
                 .icon1 {
-                    width: 14px;
-                    height: 14px;
+                    width: 14wpx;
+                    height: 14wpx;
                 }
                 .arrow1 {
-                    width: 8px;
+                    width: 8wpx;
                 }
                 .hint {
                     display: none;
                     position: absolute;
-                    right: -85px;
-                    top: 30px;
+                    right: -85wpx;
+                    top: 30wpx;
                     z-index: 10;
                     flex-shrink: 0;
-                    padding: 0 16px;
-                    border: 0.5px solid #e4e4e4;
-                    border-radius: 8px;
-                    width: 203px;
-                    height: 53px;
+                    padding: 0 16wpx;
+                    border: 0.5wpx solid #e4e4e4;
+                    border-radius: 8wpx;
+                    width: 203wpx;
+                    height: 53wpx;
                     background: #fff;
-                    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+                    box-shadow: 4wpx 4wpx 4wpx 0 rgba(0, 0, 0, 0.05);
                     font-weight: 500;
-                    font-size: 14px;
+                    font-size: 14wpx;
                     color: var(---, #0b0b0b);
                 }
                 &:hover {
@@ -123,16 +110,16 @@
             .id {
                 display: flex;
                 align-items: center;
-                margin-left: 6px;
-                padding: 0 12px;
-                border-radius: 30px;
-                height: 26px;
+                margin-left: 6wpx;
+                padding: 0 12wpx;
+                border-radius: 30wpx;
+                height: 26wpx;
                 background: #fff3e4;
                 cursor: pointer;
                 .icon {
-                    margin-right: 5px;
-                    width: 16px;
-                    height: 16px;
+                    margin-right: 5wpx;
+                    width: 16wpx;
+                    height: 16wpx;
                 }
             }
         }
@@ -141,98 +128,98 @@
 .mainnet {
     display: flex;
     position: absolute;
-    right: 85px;
-    top: 65px;
+    right: 90mpx;
+    top: 65mpx;
     align-items: center;
     flex-shrink: 0;
-    border: 0.5px solid #e4e4e4;
-    border-radius: 8px;
-    width: 203px;
-    height: 40px;
+    border: 1px solid #e4e4e4;
+    border-radius: 8mpx;
+    width: 203mpx;
+    height: 40mpx;
     background: #fff;
-    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 4mpx 4mpx 4mpx 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 14mpx;
     color: var(---, #0b0b0b);
     .icon2 {
-        margin-left: 12px;
-        margin-right: 7px;
-        width: 18px;
-        height: 18px;
+        margin-left: 12mpx;
+        margin-right: 7mpx;
+        width: 18mpx;
+        height: 18mpx;
     }
     .right-cion {
         position: absolute;
-        right: 12px;
-        top: 13px;
-        width: 14px;
-        height: 14px;
+        right: 12mpx;
+        top: 13mpx;
+        width: 14mpx;
+        height: 14mpx;
     }
 }
 .logout {
     display: flex;
     position: absolute;
-    right: 30px;
-    top: 63px;
+    right: 30mpx;
+    top: 63mpx;
     justify-content: center;
     align-items: center;
-    padding-top: 4px;
-    width: 143px;
-    height: 44px;
+    padding-top: 4mpx;
+    width: 143mpx;
+    height: 44mpx;
     background-size: 100%;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.04));
+    filter: drop-shadow(0 4mpx 4mpx rgba(0, 0, 0, 0.04));
     cursor: pointer;
-    font-size: 14px;
+    font-size: 14mpx;
     color: #ff3b3b;
     .logout-icon {
-        margin-right: 4px;
-        width: 20px;
-        height: 20px;
+        margin-right: 4mpx;
+        width: 20mpx;
+        height: 20mpx;
     }
 }
 .logout-confirm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 0;
-    border-radius: 8px;
-    width: 328px;
-    height: 150px;
+    padding: 8mpx 0;
+    border-radius: 8mpx;
+    width: 328mpx;
+    height: 150mpx;
     background: var(--White, #fff);
     .text1 {
-        margin-top: 10px;
-        font-size: 14px;
+        margin-top: 10mpx;
+        font-size: 14mpx;
         color: var(--font-color-10, #383b46);
     }
     .text2 {
-        margin-top: 5px;
-        margin-bottom: 8px;
-        font-size: 14px;
+        margin-top: 5mpx;
+        margin-bottom: 8mpx;
+        font-size: 14mpx;
         color: var(--font-color-10, #383b46);
     }
     .btns {
         display: flex;
         justify-content: space-between;
-        padding: 16px 24px;
+        padding: 16mpx 24mpx;
         width: 100%;
         .btn {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 136px;
-            height: 42px;
+            width: 136mpx;
+            height: 42mpx;
             cursor: pointer;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 16mpx;
         }
         .confirm {
-            border-radius: 6px;
+            border-radius: 6mpx;
             background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%);
             color: #fff;
         }
         .cancel {
             border: 1px solid var(--Low-Sky-Gray, rgba(86, 103, 137, 0.26));
-            border-radius: 8px;
+            border-radius: 8mpx;
             color: var(--font-color-06, #888990);
         }
     }

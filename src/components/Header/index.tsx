@@ -7,6 +7,8 @@ import { Provider, actions, connect } from 'Src/models/redux';
 import store from 'Models/index';
 import { openLoginModal } from 'Src/utils/openLoginModal';
 import { connectMainNet } from 'Src/metamask';
+import { CONFIG } from 'Src/config';
+import Phone from './phone';
 
 const mapState = (state: State) => ({
     userInfo: state.user.userInfo,
@@ -15,6 +17,9 @@ const mapState = (state: State) => ({
 
 class Header extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
+        if (window.innerWidth < 500) {
+            return <Phone />;
+        }
         const { userInfo, mainnetIsConnect } = this.props;
         return (
             <div styleName="wrap">
@@ -31,7 +36,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.open('https://twitter.com/Parrot_buzz', '_blank');
+                                window.open(CONFIG.LAUNCHPAD, '_blank');
                             }}
                         >
                             Launchpad
@@ -47,7 +52,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.open('https://twitter.com/Parrot_buzz', '_blank');
+                                window.open(CONFIG.TWITTER, '_blank');
                             }}
                         >
                             X (Twitter)
@@ -55,7 +60,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div
                             styleName="btn"
                             onClick={() => {
-                                window.open('https://parrot-2.gitbook.io/parrot-white-paper/', '_blank');
+                                window.open(CONFIG.WHITE_PAPER, '_blank');
                             }}
                         >
                             Whitepaper

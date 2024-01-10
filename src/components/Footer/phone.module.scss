@@ -1,0 +1,61 @@
+
+.footer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    height: 431wpx;
+    background: linear-gradient(0deg, #000 0%, #000 100%), #000;
+    .text1 {
+        margin-top: 80wpx;
+        font-family: Source Han Sans CN;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40wpx;
+        color: #fff;
+    }
+    .text2 {
+        margin-top: 16wpx;
+        width: 600wpx;
+        line-height: 130%; /* 36.4px */
+        font-family: Source Han Sans CN;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28wpx;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-top: 40wpx;
+        border-radius: 55wpx;
+        width: 184wpx;
+        height: 50wpx;
+        background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
+        cursor: pointer;
+        font-family: Source Han Sans CN;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28wpx;
+        color: #fff;
+        .img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            margin-left: 4wpx;
+            margin-right: 17wpx;
+            border-radius: 50%;
+            width: 42wpx;
+            height: 42wpx;
+            background-color: #fff;
+            img {
+                width: 28wpx;
+                height: 28wpx;
+            }
+        }
+    }
+}

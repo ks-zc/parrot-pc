@@ -8,7 +8,6 @@ module.exports = {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
         __DEV__: true,
-        TWITTER_CALLBACK: true,
         API_HOST: true,
         __PROD__: true,
     },

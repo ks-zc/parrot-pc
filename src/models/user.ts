@@ -23,7 +23,6 @@ export default {
     actions: {
         logout: () => {
             actions.user.setUserInfo({});
-            localStorage.setItem(CONFIG.PARROT_USER_FOLLOW, '[]');
             disconnect();
         },
         getUserInfo: async () => {

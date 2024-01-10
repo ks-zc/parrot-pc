@@ -1,33 +1,17 @@
 /* eslint-disable no-inner-declarations */
 import React from 'react';
-import './style.module.scss';
-import { openModal } from 'Components/openModal';
+import './phone.module.scss';
 import { signInWithEthereum } from 'Src/metamask';
 import { actions, getState } from '../../models/redux';
 import { Require, formatAddress } from '..';
 import Toast from '../Toast';
-import Phone from './phone';
 
-export function openLoginModal() {
-    const close = openModal(<LoginModal close={() => close()} />, {
-        style: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-    });
-    return close;
-}
-
-class LoginModal extends React.PureComponent<{ close: Function }> {
+export default class LoginModal extends React.PureComponent<{ close: Function }> {
     state = {
         userInfo: getState('user').userInfo,
     };
 
     render() {
-        if (window.innerWidth < 500) {
-            return <Phone close={this.props.close} />;
-        }
         const { userInfo } = this.state;
         const list = [
             {
