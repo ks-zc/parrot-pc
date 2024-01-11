@@ -25,7 +25,9 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
 
         return (
             <div styleName="home">
-                <img src={require('Assets/bg4.png')} styleName="bg4" alt="" />
+                <div styleName="bg4">
+                    <img src={require('Assets/bg1.png')} styleName="bg4-img" alt="" />
+                </div>
                 <img src={require('Assets/bg5.png')} styleName="bg5" alt="" />
                 <Header />
                 <div styleName="wrap" id="wrap">
