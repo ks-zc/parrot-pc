@@ -4,6 +4,7 @@ import './style.module.scss';
 import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
+import Toast from 'Src/utils/Toast';
 import Phone from './phone';
 
 const mapState = (state: State) => ({});
@@ -23,7 +24,12 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                     <div styleName="div1">
                         <div styleName="text1">Web3 Content Social Protocol</div>
                         <div styleName="text2">Let Your Spread Earn! </div>
-                        <div styleName="download-btn">
+                        <div
+                            styleName="download-btn"
+                            onClick={() => {
+                                Toast.show('未提供下载地址');
+                            }}
+                        >
                             <img styleName="chrome" src={require('Assets/chrome.svg')} alt="" />
                             <div>Install Parrot</div>
                             <img styleName="download" src={require('Assets/download.svg')} alt="" />

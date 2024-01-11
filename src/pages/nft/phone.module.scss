@@ -1,0 +1,105 @@
+.home {
+    overflow-y: scroll;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    .wrap {
+        position: relative;
+        .block {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 84wpx;
+            padding-bottom: 80wpx;
+            .title {
+                margin-top: 26wpx;
+                margin-bottom: 20wpx;
+                line-height: 20wpx; /* 55.556% */
+                text-align: center;
+                font-family: Source Han Sans CN;
+                font-style: normal;
+                font-weight: 900;
+                font-size: 36wpx;
+                color: #000;
+            }
+            .subtitle {
+                line-height: 130%; /* 36.4px */
+                text-align: center;
+                font-family: Source Han Sans CN;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 28wpx;
+                color: rgba(0, 0, 0, 0.6);
+            }
+            .btn {
+                margin-top: 20wpx;
+                height: 60wpx;
+                cursor: pointer;
+            }
+            .text1 {
+                margin-top: 40wpx;
+            }
+            .minted {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 7wpx;
+                width: 243wpx;
+                height: 60wpx;
+                background: linear-gradient(0deg, #dcdfe2 0%, #dcdfe2 100%), #fff;
+                cursor: not-allowed;
+                text-align: center;
+                font-family: PingFang SC;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20wpx;
+                color: #fff;
+                letter-spacing: -0.24px;
+                font-feature-settings: 'clig' off, 'liga' off;
+            }
+            .openSea {
+                display: flex;
+                align-items: center;
+                margin-top: 15wpx;
+                cursor: pointer;
+                font-family: Source Sans 3;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20wpx;
+                color: rgba(0, 0, 0, 0.6);
+                .arrow {
+                    height: 25wpx;
+                }
+            }
+            .minting {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 7px;
+                width: 243wpx;
+                height: 60wpx;
+                background: #dcdfe2;
+                text-align: center;
+                font-family: PingFang SC;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20wpx;
+                color: #fff;
+                letter-spacing: -0.24px;
+                font-feature-settings: 'clig' off, 'liga' off;
+            }
+            .nft {
+                flex-shrink: 0;
+                width: 380.267wpx;
+                height: 353.42wpx;
+            }
+        }
+        .line {
+            margin: 0 auto;
+            width: 662wpx;
+            height: 1px;
+            background-color: #d0d0d0;
+        }
+    }
+}

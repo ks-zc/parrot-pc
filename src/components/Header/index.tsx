@@ -27,7 +27,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                 <div styleName="header">
                     <img
                         onClick={() => {
-                            window.location.href = window.location.origin;
+                            this.props.navigate('/');
                         }}
                         styleName="parrot"
                         src={require('Assets/parrot.png')}

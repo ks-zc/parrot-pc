@@ -4,6 +4,7 @@ import './phone.module.scss';
 import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
+import Toast from 'Src/utils/Toast';
 
 const mapState = (state: State) => ({});
 
@@ -15,7 +16,14 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                 <div styleName="div1">
                     <div styleName="text1">Web3 Content Social Protocol</div>
                     <div styleName="text2">Let Your Spread Earn! </div>
-                    <div styleName="download-btn">
+                    <div
+                        styleName="download-btn"
+                        onClick={() => {
+                            Toast.show(
+                                'Please download the PARROT extension using the Chrome browser on your PC. Thank you.',
+                            );
+                        }}
+                    >
                         <img styleName="chrome" src={require('Assets/chrome.svg')} alt="" />
                         <div>Install Parrot</div>
                         <img styleName="download" src={require('Assets/download.svg')} alt="" />
