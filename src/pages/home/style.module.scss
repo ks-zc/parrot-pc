@@ -21,13 +21,20 @@
         min-width: 1440px;
         height: 1029px;
     }
-    .bg3 {
+    .bg3-wrap {
+        display: flex;
         position: absolute;
-        top: 1729px;
+        left: 50%;
+        top: 2229px;
         z-index: -1;
-        width: 100%;
-        min-width: 1440px;
-        height: 1610px;
+        justify-content: flex-end;
+        width: 1440px;
+        transform: translateX(-50%);
+        .bg3 {
+            position: relative;
+            right: -200px;
+            width: 900px;
+        }
     }
     .wrap {
         position: relative;

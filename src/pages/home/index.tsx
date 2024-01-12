@@ -18,7 +18,10 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
             <div styleName="home">
                 <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
                 <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
-                <img src={require('Assets/bg3.png')} styleName="bg3" alt="" />
+                <div styleName="bg3-wrap">
+                    <img src={require('Assets/bg3.png')} styleName="bg3" alt="" />
+                </div>
+
                 <Header />
                 <div styleName="wrap" id="wrap">
                     <div styleName="div1">

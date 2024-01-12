@@ -12,6 +12,12 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
     render() {
         return (
             <div styleName="home" id="wrap">
+                <div styleName="bg12">
+                    <img src={require('Assets/bg11.png')} styleName="bg1" alt="" />
+                    <img src={require('Assets/bg22.png')} styleName="bg2" alt="" />
+                </div>
+
+                <img src={require('Assets/bg33.png')} styleName="bg3" alt="" />
                 <Header />
                 <div styleName="div1">
                     <div styleName="text1">Web3 Content Social Protocol</div>

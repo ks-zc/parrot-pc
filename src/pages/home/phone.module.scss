@@ -1,11 +1,31 @@
 .home {
+    overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
     width: 100vw;
     height: 100vh;
+    .bg12 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        .bg1 {
+            width: 100%;
+        }
+        .bg2 {
+            width: 100%;
+        }
+    }
+    .bg3 {
+        position: absolute;
+        left: 80wpx;
+        top: 3600wpx;
+        z-index: -1;
+        width: 150%;
+    }
     .why {
         position: absolute;
-        top: 1107wpx;
+        top: 1180wpx;
         width: 100%;
         text-align: center;
         font-family: Source Han Sans CN;
@@ -16,6 +36,7 @@
     }
     .div1 {
         position: relative;
+        margin-bottom: 110wpx;
         width: 100%;
         height: 960wpx;
         .text1 {
