@@ -3,6 +3,24 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    .bg12 {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        height: 190wpx;
+        .bg2 {
+            width: 100%;
+        }
+    }
+    .bg1 {
+        position: absolute;
+        left: 0;
+        top: 190wpx;
+        z-index: -1;
+        width: 100%;
+    }
     .wrap {
         position: relative;
         .block {
