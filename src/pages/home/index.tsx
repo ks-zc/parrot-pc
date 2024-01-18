@@ -15,7 +15,7 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
             return <Phone />;
         }
         return (
-            <div styleName="home">
+            <div styleName="home" id="wrap">
                 <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
                 <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
                 <div styleName="bg3-wrap">

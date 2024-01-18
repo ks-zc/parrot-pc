@@ -120,7 +120,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                                     minWidth: 1440,
                                                 },
                                                 backdropClose: true,
-                                                where: document.body,
+                                                where: document.querySelector('#wrap')!,
                                             },
                                         );
                                     }}
@@ -185,7 +185,6 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                                                         display: 'flex',
                                                                         alignItems: 'center',
                                                                         justifyContent: 'center',
-                                                                        minWidth: 1440,
                                                                     },
                                                                     where: document.body,
                                                                 },
@@ -205,7 +204,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                                         minWidth: 1440,
                                                     },
                                                     backdropClose: true,
-                                                    where: document.body,
+                                                    where: document.querySelector('#wrap')!,
                                                 },
                                             );
                                         }

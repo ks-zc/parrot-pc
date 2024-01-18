@@ -29,7 +29,7 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
         const { minting } = this.state;
 
         return (
-            <div styleName="home">
+            <div styleName="home" id="wrap">
                 <div styleName="bg4">
                     <img src={require('Assets/bg1.png')} styleName="bg4-img" alt="" />
                 </div>
