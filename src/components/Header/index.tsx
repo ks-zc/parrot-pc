@@ -117,6 +117,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                             {
                                                 style: {
                                                     backgroundColor: 'transparent',
+                                                    minWidth: 1440,
                                                 },
                                                 backdropClose: true,
                                                 where: document.body,
@@ -184,6 +185,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                                                         display: 'flex',
                                                                         alignItems: 'center',
                                                                         justifyContent: 'center',
+                                                                        minWidth: 1440,
                                                                     },
                                                                     where: document.body,
                                                                 },
@@ -200,6 +202,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                                 {
                                                     style: {
                                                         backgroundColor: 'transparent',
+                                                        minWidth: 1440,
                                                     },
                                                     backdropClose: true,
                                                     where: document.body,
