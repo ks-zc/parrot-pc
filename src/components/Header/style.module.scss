@@ -1,6 +1,7 @@
 .wrap {
     border-bottom: 1px solid #fff;
     width: 100%;
+    min-width: 1440px;
     height: 90px;
 }
 .header {
@@ -138,6 +139,14 @@
         }
     }
 }
+.header-modal-wrap {
+    position: absolute;
+    left: 50%;
+    width: 1440px;
+    height: 100px;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
 .mainnet {
     display: flex;
     position: absolute;
@@ -152,6 +161,7 @@
     background: #fff;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
+    pointer-events: all;
     font-weight: 500;
     font-size: 14px;
     color: var(---, #0b0b0b);
@@ -182,6 +192,7 @@
     background-size: 100%;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.04));
     cursor: pointer;
+    pointer-events: all;
     font-size: 14px;
     color: #ff3b3b;
     .logout-icon {
