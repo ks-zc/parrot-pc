@@ -1,8 +1,8 @@
 .home {
-    overflow-y: scroll;
+    overflow: hidden;
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-width: 1440px;
     .bg4 {
         display: block;
         overflow: hidden;
