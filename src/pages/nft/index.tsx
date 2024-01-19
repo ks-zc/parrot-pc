@@ -9,7 +9,6 @@ import { openLoginModal } from 'Src/utils/openLoginModal';
 import { claimSeed } from 'Src/metamask';
 import { Loading } from 'Src/components/Loading';
 import { withNavigation } from 'Src/utils';
-import Toast from 'Src/utils/Toast';
 import Phone from './phone';
 
 const mapState = (state: State) => ({
@@ -55,7 +54,8 @@ class NFT extends React.PureComponent<ReturnType<typeof mapState>> {
                                 <div
                                     styleName="openSea"
                                     onClick={() => {
-                                        Toast.show('未提供View on OpenSea地址');
+                                        userInfo.passportOpenseaUrl &&
+                                            window.open(userInfo.passportOpenseaUrl, '_blank');
                                     }}
                                 >
                                     View on OpenSea
