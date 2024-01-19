@@ -1,6 +1,7 @@
 /* eslint-disable no-unsafe-finally */
 /* eslint-disable no-restricted-globals */
 import { CONFIG } from 'Src/config';
+import { actions } from 'Src/models/redux';
 import { request } from 'Src/utils/request';
 import { BrowserProvider, ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
@@ -125,6 +126,7 @@ const claimSeed = async (levelNum: number) => {
         gasPrice,
         gasLimit,
     });
+    actions.user.getUserInfo();
     return true;
 };
 
