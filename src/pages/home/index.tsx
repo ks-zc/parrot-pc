@@ -5,17 +5,19 @@ import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
 import Toast from 'Src/utils/Toast';
+import { withNavigation } from 'Src/utils';
+import { NavigateFunction } from 'react-router';
 import Phone from './phone';
 
 const mapState = (state: State) => ({});
 
-class Home extends React.PureComponent<ReturnType<typeof mapState>> {
+class Home extends React.PureComponent<ReturnType<typeof mapState> & { navigate: NavigateFunction }> {
     render() {
         if (window.innerWidth < 500) {
-            return <Phone />;
+            return <Phone navigate={this.props.navigate} />;
         }
         return (
-            <div styleName="home">
+            <div styleName="home" id="wrap">
                 <img src={require('Assets/bg1.png')} styleName="bg1" alt="" />
                 <img src={require('Assets/bg2.png')} styleName="bg2" alt="" />
                 <div styleName="bg3-wrap">
@@ -23,7 +25,7 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                 </div>
 
                 <Header />
-                <div styleName="wrap" id="wrap">
+                <div styleName="wrap">
                     <div styleName="div1">
                         <div styleName="text1">Web3 Content Social Protocol</div>
                         <div styleName="text2">Let Your Spread Earn! </div>
@@ -114,7 +116,14 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                         <div styleName="text6">
                             Secure your role in the PARROT ecosystem by minting an exclusive Parrot NFT
                         </div>
-                        <div styleName="mint">GO TO MINT</div>
+                        <div
+                            styleName="mint"
+                            onClick={() => {
+                                this.props.navigate('/nft');
+                            }}
+                        >
+                            GO TO MINT
+                        </div>
                         <img src={require('Assets/image6.png')} styleName="image6" alt="" />
                     </div>
                 </div>
@@ -125,4 +134,4 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
     }
 }
 
-export default connect(mapState)(Home);
+export default connect(mapState)(withNavigation(Home));

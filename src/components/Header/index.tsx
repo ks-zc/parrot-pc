@@ -83,22 +83,27 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                         class A extends React.PureComponent<{ mainnetIsConnect: boolean }> {
                                             render() {
                                                 return (
-                                                    <div
-                                                        styleName="mainnet"
-                                                        onClick={() => {
-                                                            if (!this.props.mainnetIsConnect) {
-                                                                connectMainNet();
-                                                            }
-                                                        }}
-                                                    >
-                                                        <img styleName="icon2" src={require('Assets/network.svg')} />
-                                                        Ethereum
-                                                        {this.props.mainnetIsConnect && (
+                                                    <div styleName="header-modal-wrap">
+                                                        <div
+                                                            styleName="mainnet"
+                                                            onClick={() => {
+                                                                if (!this.props.mainnetIsConnect) {
+                                                                    connectMainNet();
+                                                                }
+                                                            }}
+                                                        >
                                                             <img
-                                                                styleName="right-cion"
-                                                                src={require('Assets/right.svg')}
+                                                                styleName="icon2"
+                                                                src={require('Assets/network.svg')}
                                                             />
-                                                        )}
+                                                            Ethereum
+                                                            {this.props.mainnetIsConnect && (
+                                                                <img
+                                                                    styleName="right-cion"
+                                                                    src={require('Assets/right.svg')}
+                                                                />
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 );
                                             }
@@ -113,6 +118,7 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                             {
                                                 style: {
                                                     backgroundColor: 'transparent',
+                                                    minWidth: 1440,
                                                 },
                                                 backdropClose: true,
                                                 where: document.querySelector('#wrap')!,
@@ -141,54 +147,62 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                             openLoginModal();
                                         } else {
                                             const close1 = openModal(
-                                                <div
-                                                    styleName="logout"
-                                                    style={{
-                                                        backgroundImage: `url(${require('Assets/logout-wrap.svg')})`,
-                                                    }}
-                                                    onClick={() => {
-                                                        close1();
-                                                        const close = openModal(
-                                                            <div styleName="logout-confirm">
-                                                                <div styleName="text1">Log out of Parrot?</div>
-                                                                <div styleName="text2">@{userInfo.twitterUserName}</div>
-                                                                <div styleName="btns">
-                                                                    <div
-                                                                        styleName="btn cancel"
-                                                                        onClick={() => {
-                                                                            close();
-                                                                        }}
-                                                                    >
-                                                                        Cancle
+                                                <div styleName="header-modal-wrap">
+                                                    <div
+                                                        styleName="logout"
+                                                        style={{
+                                                            backgroundImage: `url(${require('Assets/logout-wrap.svg')})`,
+                                                        }}
+                                                        onClick={() => {
+                                                            close1();
+                                                            const close = openModal(
+                                                                <div styleName="logout-confirm">
+                                                                    <div styleName="text1">Log out of Parrot?</div>
+                                                                    <div styleName="text2">
+                                                                        @{userInfo.twitterUserName}
                                                                     </div>
-                                                                    <div
-                                                                        styleName="btn confirm"
-                                                                        onClick={() => {
-                                                                            actions.user.logout();
-                                                                            close();
-                                                                        }}
-                                                                    >
-                                                                        Confirm
+                                                                    <div styleName="btns">
+                                                                        <div
+                                                                            styleName="btn cancel"
+                                                                            onClick={() => {
+                                                                                close();
+                                                                            }}
+                                                                        >
+                                                                            Cancle
+                                                                        </div>
+                                                                        <div
+                                                                            styleName="btn confirm"
+                                                                            onClick={() => {
+                                                                                actions.user.logout();
+                                                                                close();
+                                                                            }}
+                                                                        >
+                                                                            Confirm
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>,
-                                                            {
-                                                                style: {
-                                                                    display: 'flex',
-                                                                    alignItems: 'center',
-                                                                    justifyContent: 'center',
+                                                                </div>,
+                                                                {
+                                                                    style: {
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        justifyContent: 'center',
+                                                                    },
+                                                                    where: document.body,
                                                                 },
-                                                                where: document.querySelector('#wrap')!,
-                                                            },
-                                                        );
-                                                    }}
-                                                >
-                                                    <img src={require('Assets/logout.svg')} styleName="logout-icon" />
-                                                    disconnect
+                                                            );
+                                                        }}
+                                                    >
+                                                        <img
+                                                            src={require('Assets/logout.svg')}
+                                                            styleName="logout-icon"
+                                                        />
+                                                        disconnect
+                                                    </div>
                                                 </div>,
                                                 {
                                                     style: {
                                                         backgroundColor: 'transparent',
+                                                        minWidth: 1440,
                                                     },
                                                     backdropClose: true,
                                                     where: document.querySelector('#wrap')!,

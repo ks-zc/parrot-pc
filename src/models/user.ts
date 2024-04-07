@@ -13,6 +13,7 @@ interface UserInfo {
     profileImageUrl?: string;
     l2Eligible?: boolean;
     level?: number;
+    passportOpenseaUrl?: string;
 }
 
 export default {

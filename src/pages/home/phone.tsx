@@ -5,10 +5,11 @@ import { connect } from 'Src/models/redux';
 import Header from 'Components/Header';
 import Footer from 'Components/Footer';
 import Toast from 'Src/utils/Toast';
+import { NavigateFunction } from 'react-router';
 
 const mapState = (state: State) => ({});
 
-class Home extends React.PureComponent<ReturnType<typeof mapState>> {
+class Home extends React.PureComponent<ReturnType<typeof mapState> & { navigate: NavigateFunction }> {
     render() {
         return (
             <div styleName="home" id="wrap">
@@ -112,7 +113,14 @@ class Home extends React.PureComponent<ReturnType<typeof mapState>> {
                     </div>
 
                     <img src={require('Assets/image6.png')} styleName="image6" alt="" />
-                    <div styleName="mint">GO TO MINT</div>
+                    <div
+                        styleName="mint"
+                        onClick={() => {
+                            this.props.navigate('/nft');
+                        }}
+                    >
+                        GO TO MINT
+                    </div>
                 </div>
                 <Footer />
             </div>

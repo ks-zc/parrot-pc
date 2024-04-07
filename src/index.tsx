@@ -20,6 +20,7 @@ if (window.location.pathname.endsWith('/bindx')) {
 } else {
     const res = localStorage.getItem(CONFIG.PARROT_USER);
     actions.user.setState({ userInfo: JSON.parse(res || '{}') });
+    actions.user.getUserInfo();
     onMainnetIsConnect((mainnetIsConnect) => {
         actions.user.setState({ mainnetIsConnect });
     });

@@ -1,8 +1,8 @@
 .home {
-    overflow-y: scroll;
+    overflow: hidden;
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-width: 1440px;
     .bg1 {
         display: block;
         position: absolute;
@@ -227,6 +227,7 @@
     }
     .wrap1 {
         width: 100%;
+        min-width: 1440px;
         background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
     }
     .div3 {
