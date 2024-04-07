@@ -26,36 +26,45 @@
         font-size: 28wpx;
         color: rgba(255, 255, 255, 0.6);
     }
-    .logo {
+    .logo-wrap {
         display: flex;
         align-items: center;
-        flex-shrink: 0;
         margin-top: 40wpx;
-        border-radius: 55wpx;
-        width: 184wpx;
-        height: 50wpx;
-        background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
-        cursor: pointer;
-        font-family: Source Han Sans CN;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 28wpx;
-        color: #fff;
-        .img {
+        .logo {
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-shrink: 0;
-            margin-left: 4wpx;
-            margin-right: 17wpx;
-            border-radius: 50%;
-            width: 42wpx;
-            height: 42wpx;
-            background-color: #fff;
-            img {
+            border-radius: 55wpx;
+            width: 183wpx;
+            height: 36wpx;
+            background: linear-gradient(266deg, #00ffeb 1.29%, #6a6ffb 101.04%), #000;
+            cursor: pointer;
+            font-family: Source Han Sans CN;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20wpx;
+            color: #fff;
+            .img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                margin-left: 4wpx;
+                margin-right: 10wpx;
+                border-radius: 50%;
                 width: 28wpx;
                 height: 28wpx;
+                background-color: #fff;
+                img {
+                    width: 18wpx;
+                    height: 18wpx;
+                }
             }
+        }
+        .telegram {
+            margin-left: 10wpx;
+            width: 36wpx;
+            height: 36wpx;
         }
     }
 }

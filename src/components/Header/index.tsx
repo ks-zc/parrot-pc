@@ -48,7 +48,8 @@ class Header extends React.PureComponent<ReturnType<typeof mapState> & { navigat
                                 this.props.navigate('/nft');
                             }}
                         >
-                            🔥Freemint
+                            {/* 🔥Freemint */}
+                            Free Mint
                         </div>
                         <div
                             styleName="btn"
